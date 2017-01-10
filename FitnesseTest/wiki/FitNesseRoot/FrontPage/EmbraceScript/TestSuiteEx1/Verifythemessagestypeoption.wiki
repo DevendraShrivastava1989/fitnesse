@@ -1,0 +1,144 @@
+---
+Suites: EM-2550
+Test
+---
+ * Scenario - This test case verifies the messages type options and alert option should not present.
+ * Inputs
+ * Expected Outputs
+ 
+| script | browser test |
+| seconds before timeout | 140 |
+| open | http://192.168.10.13/embrace2 |
+| set browser size to maximum |
+| wait | 15 | seconds |
+| wait for visible | Login |
+| enter | admin@homeunion.com | as | xpath=//*[@id="loginForm"]/div[2]/div/input |
+| enter | password | as | xpath=//*[@id="loginForm"]/div[3]/div/input |
+| click | Login | |
+| wait | 10 | seconds |
+|click                 |Investors                               |
+|wait                  |1                  |seconds             |
+|click                 |Search/View                             |
+|wait                  |1                  |seconds             |
+|enter                 |Gurhan             |as|First / Last name|
+|click                 |id=searchInvestor                       |
+|wait                  |5|seconds|
+|click|xpath=//*[@id="investorSearchResultsTable"]/tbody/tr/td[2]/a|
+|wait                  |8|seconds|
+|click                 |Messages |
+|wait                  |6|seconds|
+|click                 |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+|show |take screenshot |msg_type_1|
+|show |available options for |xpath=//*[@id="umsg-type-list"]|
+|check | available options for |xpath=//*[@id="umsg-type-list"]|[All, Comment, E-mail] |
+|select | All | for |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+|select | E-mail | for |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+|select | Comment | for |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+|open                  |http://192.168.10.13/embrace2/#opportunity/54881343-533e-4cb7-848e-e87c61221856|  
+|wait                  |8|seconds|
+|click                 |Messages |
+|wait                  |6|seconds|
+|click                 |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+|show |take screenshot |msg_type_2|
+|show |available options for |xpath=//*[@id="umsg-type-list"]|
+|check | available options for |xpath=//*[@id="umsg-type-list"]|[All, Comment, E-mail] |
+|select | All | for |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+|select | E-mail | for |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+|select | Comment | for |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+|click                 |Closings                                |
+|wait                  |1                  |seconds             |
+|click                 |Search/View                             |
+|wait                  |2                  |seconds             |
+|enter                 |Gurhan             |as|First / Last name|
+|click                 |id=closingSearchSubmit                  |
+|wait                  |5|seconds|
+|click|xpath=//*[@id="myClosingsTable"]/tbody/tr[1]/td[6]/a|
+|wait                  |8|seconds|
+|click                 |Messages |
+|wait                  |6|seconds|
+|click                 |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+|show |take screenshot |msg_type_3|
+|show |available options for |xpath=//*[@id="umsg-type-list"]|
+|check | available options for |xpath=//*[@id="umsg-type-list"]|[All, Comment, E-mail] |
+|select | All | for |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+|select | E-mail | for |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+|select | Comment | for |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+|click                 |Assets                                  |
+|wait                  |1                  |seconds             |
+|click                 |Search/View                             |
+|wait                  |1                  |seconds             |
+|enter                 |Gurhan             |as|First / Last name|
+|click                 |id=searchAssets                         |
+|wait                  |5|seconds|
+|click|xpath=//*[@id="searchResultTable"]/tbody/tr[1]/td[5]/a|
+|wait                  |8|seconds|
+|click                 |Messages |
+|wait                  |6|seconds|
+|click                 |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+|show |take screenshot |msg_type_4|
+|show |available options for |xpath=//*[@id="umsg-type-list"]|
+|check | available options for |xpath=//*[@id="umsg-type-list"]|[All, Comment, E-mail] |
+|select | All | for |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+|select | E-mail | for |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+|select | Comment | for |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+|click                 |Marketing                               | 
+|wait                  |2                  |seconds             |
+|enter                 |Gurhan             |as|First / Last name|
+|click                 |Search|
+|wait                  |5|seconds|
+|click|xpath=//*[@id="myAssetMarketingTable"]/tbody/tr[1]/td[8]/a|
+|wait                  |8|seconds|
+|click                 |Messages |
+|wait                  |6|seconds|
+|click                 |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+|show |take screenshot |msg_type_5|
+|show |available options for |xpath=//*[@id="umsg-type-list"]|
+|check | available options for |xpath=//*[@id="umsg-type-list"]|[All, Comment, E-mail] |
+|select | All | for |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+|select | E-mail | for |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+|select | Comment | for |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+|click                 |Rehabs                                  | 
+|wait                  |2                  |seconds             |
+|enter                 |Gurhan             |as|First / Last name|
+|click                 |Search                                  |
+|wait                  |5|seconds|
+|click|xpath=//*[@id="rehabsTable"]/tbody/tr[1]/td[8]/a|
+|wait                  |8|seconds|
+|click                 |Messages |
+|wait                  |6|seconds|
+|click                 |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+|show |take screenshot |msg_type_7|
+|show |available options for |xpath=//*[@id="umsg-type-list"]|
+|check | available options for |xpath=//*[@id="umsg-type-list"]|[All, Comment, E-mail] |
+|select | All | for |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+|select | E-mail | for |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+|select | Comment | for |xpath=//*[@id="umsg-type-list"]|
+|wait                  |3|seconds|
+
+
+
+
+

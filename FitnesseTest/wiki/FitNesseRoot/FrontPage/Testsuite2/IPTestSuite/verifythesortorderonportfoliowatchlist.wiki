@@ -1,0 +1,32 @@
+---
+Test
+---
+!path D:\GitTest\TestingScripts\HomeUnion\target\test-classes\
+!path D:\GitTest\TestingScripts\HomeUnion\target\classes\
+
+
+| Import |
+| fitnesse.fixtures |
+
+| Library |
+| investorportal |
+
+
+| script | investorportal |
+| seconds before timeout | 60 |
+| loginto | demo@homeunion.com | Prod | 123456 |
+| wait | 9 | seconds |
+| click | WATCH LIST |
+| wait | 15 | seconds |
+| $result = | verifythesortorderonportfoliowatchlist | recently created |
+| check | echo | $result | PASS |
+| $result = | verifythesortorderonportfoliowatchlist | recently modified |
+| check | echo | $result | PASS |
+| $result = | verifythesortorderonportfoliowatchlist | Investment Amount |
+| check | echo | $result | PASS |
+| $result = | verifythesortorderonportfoliowatchlist | Total Return |
+| check | echo | $result | PASS |
+| $result = | verifythesortorderonportfoliowatchlist | Yield |
+| check | echo | $result | PASS |
+| $result = | verifythesortorderonportfoliowatchlist | Cash On Cash Return |
+| check | echo | $result | PASS |

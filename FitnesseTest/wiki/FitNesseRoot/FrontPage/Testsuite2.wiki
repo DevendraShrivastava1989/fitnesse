@@ -1,0 +1,12 @@
+---
+Suite
+Test: no
+---
+!1 Test suite X
+!contents -R2 -g -p -f -h
+!define TEST_SYSTEM {slim}
+!define COLLAPSE_SETUP {true} 
+!define COLLAPSE_TEARDOWN {true} 
+!path fixtures
+!path fixtures/*.jar
+!path lib/*.jar

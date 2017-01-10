@@ -1,0 +1,245 @@
+!contents -R2 -g -p -f -h
+| Import |
+| fitnesse |
+| fitnesse.fixtures |
+
+!define invSearchbutton {id=searchInvestor}
+!define invEmailtxtbox {id=email}
+!define invclientServicesdropdown {id=clientServices}
+!define invcurrentInvestorcheckbox {css=input#currentInvestor}
+!define invUnderAssetManagementcheckbox {css=input#investorsUnderAM}
+
+
+| scenario | logintoembrace | username | password |
+| seconds before timeout | 180 |
+| open | http://192.168.10.13/embrace2 |
+| set browser size to maximum |
+| wait | 1 | seconds |
+| enter | @username | as | Username |
+| wait | 1 | seconds |
+| enter | password | as | Password |
+| wait | 1 | seconds |
+| click | Login |
+| wait | 5 | seconds |
+
+| scenario | propertysearch | from |byInvAmt| to |
+| refresh |
+| wait | 10 | seconds |
+| enter | @from | as | id=price1 |
+| enter | @to | as | id=price2 |
+| click | id=searchProperty |
+| wait | 10 | seconds |
+| $result= |validatePropertySearchResult | Investment Amount || @from||@to|
+| check | echo | PASS |$result|
+
+| scenario | propertysearch | from |byListPrice| to |
+| refresh |
+| wait | 10 | seconds |
+| enter | @from | as | id=Listprice1 |
+| enter | @to | as | id=Listprice2 |
+| click | id=searchProperty |
+| wait | 10 | seconds |
+| $result= |validatePropertySearchResult | List Price || @from||@to|
+| check | echo | PASS |$result|
+
+
+| scenario | propertysearch | from |byYearBuilt| to |
+| refresh |
+| wait | 10 | seconds |
+| enter | @from | as | id=year1 |
+| enter | @to | as | id=year2 |
+| click | id=searchProperty |
+| wait | 10 | seconds |
+| $result= |validatePropertySearchResult | yearBuilt||@from||@to|
+| check | echo | PASS |$result|
+
+| scenario | propertysearch | from |byYield| to |
+| refresh |
+| wait | 10 | seconds |
+| enter | @from | as | id=returnval1 |
+| enter | @to | as | id=returnval2 |
+| click | id=searchProperty |
+| wait | 10 | seconds |
+| $result= |validatePropertySearchResult | Yield || @from||@to|
+| check | echo | PASS |$result|
+
+| scenario | propertysearchbyNIR | nir |
+| refresh |
+| wait | 10 | seconds |
+| enter | @nir | as | id=s2id_autogen2 |
+| wait | 5 | seconds |
+| click | css=#select2-drop > ul > li > ul > li:nth-child(1) |
+| click | id=searchProperty |
+| wait | 10 | seconds |
+| $var= | value of column number |9| in row number |1|
+| $result=|compareStringPropertySearch|@nir||$var|
+| check | echo | PASS |$result|
+
+| scenario | propertysearchbyHIL | hil |
+| refresh |
+| wait | 10 | seconds |
+| enter | @hil | as | id=s2id_autogen3 |
+| wait | 5 | seconds |
+| click | css=#select2-drop > ul > li > ul > li:nth-child(1) |
+| click | id=searchProperty |
+| wait | 10 | seconds |
+| $var= | value of column number |7| in row number |1|
+| $result=|compareStringPropertySearch|@hil||$var|
+| check | echo | PASS |$result|
+
+| scenario | propertysearchbyState | state |
+| refresh |
+| wait | 10 | seconds |
+| enter | @state | as | id=s2id_autogen1 |
+| wait | 5 | seconds |
+| click | css=#select2-drop > ul > li > ul > li:nth-child(1) |
+| click | id=searchProperty |
+| wait | 10 | seconds |
+
+
+| scenario | propertysearchbyTag | tag |
+| refresh |
+| wait | 10 | seconds |
+| select | @tag | for | Tag  |
+| click | id=searchProperty |
+| wait | 10 | seconds |
+
+| scenario | propertysearchbySource | source |
+| refresh |
+| wait | 10 | seconds |
+| enter | @source | as | id=psource  |
+| click | id=searchProperty |
+| wait | 10 | seconds |
+| $var= | value of column number |17| in row number |1|
+| $result=|compareStringPropertySearch|@source||$var|
+| check | echo | PASS |$result|
+
+| scenario | propertysearchbyAddress | address |
+| refresh |
+| wait | 10 | seconds |
+| enter | @address | as | id=address  |
+| click | id=searchProperty |
+| wait | 10 | seconds |
+| $var= | value of column number |3| in row number |1|
+| $result=|compareStringPropertySearch|@address||$var|
+| check | echo | PASS |$result|
+
+| scenario | propertysearchbyCity | city |
+| refresh |
+| wait | 10 | seconds |
+| enter | @city | as | id=city  |
+| click | id=searchProperty |
+| wait | 10 | seconds |
+| $var= | value of column number |4| in row number |1|
+| $result=|compareStringPropertySearch|@city||$var|
+| check | echo | PASS |$result|
+
+| scenario | propertysearchbyZip | zip |
+| refresh |
+| wait | 10 | seconds |
+| enter | @zip | as | id=zip  |
+| click | id=searchProperty |
+| wait | 10 | seconds |
+| $var= | value of column number |6| in row number |1|
+| $result=|compareStringPropertySearch|@zip||$var|
+| check | echo | PASS |$result|
+
+| scenario |investorsearchbyName | invName |
+| enter | @invName |as |First / Last name|
+| click | ${invSearchbutton} |
+| wait | 10 | seconds |
+
+| scenario |investorsearchbyEmailid | emailid |
+| enter | @emailid |as |${invEmailtxtbox}|
+| click | ${invSearchbutton} |
+| wait | 10 | seconds |
+
+| scenario | investorsearchbyTag | tag |
+| refresh |
+| wait | 10 | seconds |
+| select | @tag | for | Tag  |
+| click | ${invSearchbutton} |
+| wait | 10 | seconds |
+
+| scenario | investorsearchbySolutionSpecialist | ssname |
+| refresh |
+| wait | 10 | seconds |
+| select | @ssname | for | Solution Specialist  |
+| click | ${invSearchbutton} |
+| wait | 10 | seconds |
+
+
+| scenario | investorsearchbyClientServices | userName |
+| refresh |
+| wait | 10 | seconds |
+| select | @userName | for | ${invclientServicesdropdown}  |
+| click | ${invSearchbutton} |
+| wait | 10 | seconds |
+
+| scenario | investorsearchbyCurrentInvestor |
+| refresh |
+| wait | 10 | seconds |
+| selectCurrentInvestorcheckbox |
+| click | ${invSearchbutton} |
+| wait | 10 | seconds |
+
+| scenario | investorsearchbyInvestorsUnderAssetManagement |
+| refresh |
+| wait | 10 | seconds |
+| selectInvestorsUnderAssetManagement  |
+| click | ${invSearchbutton} |
+| wait | 10 | seconds |
+
+
+| scenario | verifyinvestorsearchbyName | invName |
+| $var= | value of column number |2| in row number |1|
+| $result=|compareString|@invName||$var|
+| check | echo | PASS |$result|
+
+| scenario | verifyinvestorsearchbyEmailid | emailid |
+| $var= | value of column number |4| in row number |1|
+| $result=|compareString|@emailid||$var|
+| check | echo | PASS |$result|
+
+
+| scenario | verifyinvestorsearchbySolutionSpecialist | ssname |
+| $var= | value of column number |3| in row number |1|
+| $result=|compareString|@ssname||$var|
+| check | echo | PASS |$result|
+
+
+| scenario | verifyinvestorsearchbyClientServices | userName |
+| $var= | value of column number |7| in row number |1|
+| $result=|compareString|@userName||$var|
+| check | echo | PASS |$result|
+
+| scenario | verifyInvestorsUnderAssetManagement |
+| $var= | value of column number |6| in row number |1|
+| check | echo | $var | >0 |
+
+| scenario | opportunitysearchbyinvName | invName |
+| enter | @invName |as |First / Last name|
+| click | Search |
+| wait | 10 | seconds |
+
+
+| scenario | opportunitysearchbyPropertyAddress | propertyAddress |
+
+
+
+| scenario | opportunitysearchbyStatus | status |
+
+
+
+| scenario | opportunitysearchbySolutionsManager | solutionsManager |
+
+
+| scenario | opportunitysearchbyILM | ilm |
+
+
+
+
+
+
+
+

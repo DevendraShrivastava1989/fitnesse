@@ -1,0 +1,6 @@
+!contents -R2 -g -p -f -h
+!define TEST_SYSTEM {slim}
+
+!path fixtures
+!path fixtures/*.jar
+!path lib/*.jar

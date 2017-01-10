@@ -1,0 +1,16 @@
+---
+Files: no
+Properties: no
+RecentChanges: no
+Refactor: no
+Search: no
+Static
+Versions: no
+WhereUsed: no
+---
+!contents -R2 -g -p -f -h
+!define TEST_SYSTEM {slim}
+
+!path fixtures
+!path fixtures/*.jar
+!path lib/*.jar

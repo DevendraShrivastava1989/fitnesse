@@ -1,0 +1,52 @@
+---
+Test
+---
+!path D:\GitTest\TestingScripts\HomeUnion\target\test-classes\
+!path D:\GitTest\TestingScripts\HomeUnion\target\classes\
+| Import |
+| fitnesse |
+| fitnesse.fixtures |
+
+| Library |
+| supportfunctions |
+| echo fixture |
+| embrace |
+
+| script | browser test |
+| logintoembrace | admin@homeunion.com | password |
+| wait | 5 | seconds |
+|  propertysearchbySource | MLS |
+| propertysearchbyAddress | 5107 BEECH DRIVE |
+| propertysearchbyCity | Indianapolis |
+| propertysearchbyZip | 46254 |
+| propertysearchbyNIR | A |
+| propertysearchbyHIL | Atlanta |
+| propertysearch | 1 | byInvAmt | 100000 |
+| propertysearch | 1 | byListPrice | 50000 |
+| propertysearch | 1990 | byYearBuilt | 2010 |
+| propertysearch | 1 | byYield | 15 |
+| propertysearchbyState | Alabama |
+| propertysearchbyTag | Agent Previewed |
+
+
+
+| comment |
+| click | css=#s2id_autogen2 |
+| wait | 5 | seconds |
+| show | available options for | xpath=//*[@id="select2-drop"]/ul/li/ul |
+| show | values of | css=#select2-drop > ul > li > ul |
+| click | css=#select2-drop > ul > li > ul > li:nth-child(1) |
+
+#| propertysearch | 1 | byInvAmt | 100000 |
+
+#| propertysearch | 1 | byListPrice | 50000 |
+
+#| propertysearch | 1990 | byYearBuilt | 2010 |
+
+#| propertysearch | 1 | byYield | 15 |
+
+
+
+#| propertysearchbyTag | Agent Previewed |
+
+

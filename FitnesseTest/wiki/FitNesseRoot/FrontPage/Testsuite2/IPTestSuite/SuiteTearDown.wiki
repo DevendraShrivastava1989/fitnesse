@@ -1,0 +1,5 @@
+!contents -R2 -g -p -f -h
+
+|script|selenium driver setup|
+|show  |run summary          |
+|stop driver                 |

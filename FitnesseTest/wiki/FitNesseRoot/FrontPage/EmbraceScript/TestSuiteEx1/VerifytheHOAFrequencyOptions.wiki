@@ -1,0 +1,40 @@
+---
+Test
+---
+| script | browser test |
+| seconds before timeout | 140 |
+| open | http://192.168.10.13/embrace2 |
+| set browser size|1280          |to by   |1024     |
+| wait | 15 | seconds |
+| wait for visible | Login |
+| enter | admin@homeunion.com | as | xpath=//*[@id="loginForm"]/div[2]/div/input |
+| enter | password | as | xpath=//*[@id="loginForm"]/div[3]/div/input |
+| click | Login | |
+| wait | 10 | seconds |
+|click                 |Assets                                  |
+|wait                  |1                  |seconds             |
+|click                 |Search/View                             |
+|wait                  |1                  |seconds             |
+|enter                 |Mody               |as|First / Last name|
+|click                 |id=searchAssets                         |
+|wait for visible | xpath=//*[@id="searchResultTable"]/tbody/tr[1]/td[5]/a |
+|click | xpath=//*[@id="searchResultTable"]/tbody/tr[1]/td[5]/a |
+|wait                  |5                  |seconds             |
+|click | css=#maincontainer > div.page-content > div:nth-child(4) > div.col-md-8 > a:nth-child(1)|
+|wait | 4 |seconds |
+|enter | test address |as|css=#hoa_tab_1 > div > div > form > div > div:nth-child(3) > div:nth-child(1) > div > div > input|
+|click | xpath=//*[@id="hoa_tab_1"]/div/div/form/div/div[4]/div[1]/div/label/span[2]/a/i|
+|enter | test address1 |as|xpath=//*[@id="hoa_tab_1"]/div/div/form/div/div[5]/div[1]/div[2]/div/div/input|
+|enter | 500 | as | xpath=//*[@id="paymentAmount_currency"]|
+|show | available options for | xpath=//*[@id="hoa_tab_1"]/div/div/form/div/div[7]/div[2]/div/div/div/select|
+|select | Quarterly |for | xpath=//*[@id="hoa_tab_1"]/div/div/form/div/div[7]/div[2]/div/div/div/select|
+|wait | 3 |seconds |
+|show | take screenshot | Hoafreq_1 |
+|click | xpath=//*[@id="hoa_tab_1"]/div/div/button[2]|
+|wait | 4 |seconds |
+|click | xpath=//*[@id="propertyHoaModal"]/div/div/div[1]/button|
+|wait | 4 |seconds |
+|click | css=#maincontainer > div.page-content > div:nth-child(4) > div.col-md-8 > a:nth-child(1)|
+|wait | 4 |seconds |
+|check | value of |css=#hoa_tab_1 > div > div > form > div > div:nth-child(3) > div:nth-child(1) > div > div > input|test address |
+|check | value of |xpath=//*[@id="hoa_tab_1"]/div/div/form/div/div[7]/div[2]/div/div/div/select|Quarterly |

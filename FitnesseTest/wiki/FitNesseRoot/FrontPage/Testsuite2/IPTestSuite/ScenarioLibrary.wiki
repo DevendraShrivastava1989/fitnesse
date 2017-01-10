@@ -1,0 +1,51 @@
+!define Environment {prod}
+| Import |
+| fitnesse |
+| fitnesse.fixtures |
+| nl.hsac.fitnesse.fixture |
+| nl.hsac.fitnesse.fixture.slim |
+| fitnesse.slim.test|
+| nl.hsac.fitnesse.fixture.slim.StringFixture |
+
+
+| Library |
+| echo fixture |
+
+| scenario | loginto | username | prod | password |
+| open | https://investor.homeunion.com/#login |
+| set browser size | 1280 | to by | 735 |
+| wait | 1 | seconds |
+| enter | @username | as | Email |
+| wait | 1 | seconds |
+| enter | @password | as | Password |
+| wait | 1 | seconds |
+| click | Login |
+| wait | 5 | seconds |
+
+| scenario | loginto | username | STG | password |
+| open | http://investorstaging.homeunion.com/#login |
+| set browser size | 1280 | to by | 735 |
+| wait | 1 | seconds |
+| enter | @username | as | Email |
+| wait | 1 | seconds |
+| enter | @password | as | Password |
+| wait | 1 | seconds |
+| click | Login |
+| wait | 5 | seconds |
+
+| scenario | loginto | username | INTEG | password |
+| open | http://192.168.10.13/investorportal/#login |
+| set browser size | 1280 | to by | 735 |
+| wait | 1 | seconds |
+| enter | @username | as | Email |
+| wait | 1 | seconds |
+| enter | @password | as | Password |
+| wait | 1 | seconds |
+| click | Login |
+| wait | 5 | seconds |
+
+|scenario |valueTest |
+|$var=	|replace all|[,]	|in	|$var	|with	||
+|$var=	|replace all|[null]	|in	|$var	|with	|0|
+|check |echo|$var| =0 |
+

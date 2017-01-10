@@ -1,0 +1,18 @@
+---
+Test
+---
+!path D:\GitTest\TestingScripts\HomeUnion\target\test-classes\
+!path D:\GitTest\TestingScripts\HomeUnion\target\classes\
+
+
+| Import |
+| fitnesse.fixtures |
+
+| script | browser test |
+| logintoembrace | admin@homeunion.com | password |
+| note |click | id=searchProperty |
+| note |wait | 10 | seconds |
+| note |check | value of | xpath=//*[@id="propertySearchResultsTable_info"] | Showing 1 to 10 of 1,834 entries |
+| wait | 5 | seconds |
+| property |1|search|100000|
+| note |logoutofembraceinteg|

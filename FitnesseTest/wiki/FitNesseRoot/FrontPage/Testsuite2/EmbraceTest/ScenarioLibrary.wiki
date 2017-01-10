@@ -1,0 +1,27 @@
+!contents -R2 -g -p -f -h
+| Import |
+| fitnesse |
+
+| Library |
+| supportfunctions |
+
+|scenario| logintoembrace | username | password |
+| seconds before timeout | 180 |
+| open | http://192.168.10.13/embrace2 |
+| set browser size to maximum |
+| wait | 1 | seconds |
+| enter | @username | as | Username |
+| wait | 1 | seconds |
+| enter | password | as | Password |
+| wait | 1 | seconds |
+| click | Login |
+| wait | 5 | seconds |
+
+|scenario| propertysearch | from | to |
+| enter | @from | as | id=Listprice1 |
+| enter | @to | as | id=Listprice2 |
+| click | id=searchProperty |
+| wait | 5 | seconds |
+| verifypropertySearchResult |
+
+| scenario | verifypropertySearchResult |

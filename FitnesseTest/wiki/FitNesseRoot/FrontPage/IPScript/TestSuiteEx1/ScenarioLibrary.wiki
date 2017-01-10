@@ -1,0 +1,12 @@
+!contents -R2 -g -p -f -h
+| Import |
+| fitnesse |
+
+| scenario|loggintoIP|username|and|password|
+| open | http://investorstaging.homeunion.com/ip-experience/#login |
+| wait | 5 | seconds |
+| wait for visible | Login |
+| enter | @username | as | xpath=//*[@id="page-login-username-input"] |
+| enter | @password | as | xpath=//*[@id="page-login-password-input"] |
+| click | Login |
+| wait | 8 | seconds |

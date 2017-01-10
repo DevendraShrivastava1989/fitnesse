@@ -1,0 +1,12 @@
+| script | browser test |
+| open | https://www.google.co.in |
+| type | QATest |
+| wait | 2 | seconds |
+| press | Enter | |
+| wait | 3 | seconds |
+| show | take screenshot | Test_1 |
+| check | page title | QATest - Google Search |
+| $url= | location |
+| show | value of | $url |
+| click | QATest.com | |
+| wait | 3 | seconds |

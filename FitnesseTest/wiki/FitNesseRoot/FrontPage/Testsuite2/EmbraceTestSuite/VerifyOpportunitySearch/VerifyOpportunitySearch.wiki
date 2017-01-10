@@ -1,0 +1,23 @@
+---
+Test
+---
+!path D:\GitTest\TestingScripts\HomeUnion\target\test-classes\
+!path D:\GitTest\TestingScripts\HomeUnion\target\classes\
+
+
+| Import |
+| fitnesse |
+| fitnesse.fixtures |
+
+| Library |
+| supportfunctions |
+| echo fixture |
+| embrace |
+
+| script | browser test |
+| logintoembrace | admin@homeunion.com | password |
+| wait | 5 | seconds |
+| click | Opportunities |
+| wait | 2 | seconds |
+| click | Search/View |
+| wait | 10 | seconds |

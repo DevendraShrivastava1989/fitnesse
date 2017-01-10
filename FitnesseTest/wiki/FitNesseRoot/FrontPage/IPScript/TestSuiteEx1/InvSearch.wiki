@@ -1,0 +1,13 @@
+---
+Test
+---
+| script | browser test |
+| loggintoIP |rohantest@homeuniontest.com|and|Rohan123|
+| enter | brown | as | xpath=//*[@id="searchName"] |
+| click | xpath=//*[@id="userSearchBtn"] |
+| wait | 3 | seconds |
+| $invName1= | value of column number | 1 | in row number | 1 |
+| $invName2= | value of column number | 1 | in row number | 2 |
+| $invName3= | value of column number | 1 | in row number | 3 |
+| $invName4= | value of column number | 1 | in row number | 4 |
+| echo | $invName4 |

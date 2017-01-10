@@ -1,0 +1,44 @@
+---
+Test
+---
+!path D:\GitTest\TestingScripts\HomeUnion\target\test-classes\
+!path D:\GitTest\TestingScripts\HomeUnion\target\classes\
+
+
+| Import |
+| fitnesse.fixtures |
+| nl.hsac.fitnesse.fixture.slim.StringFixture |
+
+| Library |
+| investorportal |
+| stringtointcomparison |
+| mathoperations |
+| supportfunctions|
+
+
+
+| script | investorportal |
+| seconds before timeout | 20 |
+| loginto | demo@homeunion.com | Prod | 123456 |
+| wait | 9 | seconds |
+| $var=|value of | xpath=//tr[td[contains(., 'Total Real Estate ')]][last()]/td[2] |
+| $test= | replaceNullwithZero | $var |
+| check |echo|$test| =0 |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+| script |nl.hsac.fitnesse.fixture.slim.StringFixture|
+|note |$var=	|replace all|**|in	|$var	|with	|0|
+|note |check |echo|$var| =0 |

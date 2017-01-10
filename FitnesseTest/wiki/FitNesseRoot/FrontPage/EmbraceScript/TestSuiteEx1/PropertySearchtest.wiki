@@ -1,0 +1,29 @@
+---
+Files: no
+Properties: no
+RecentChanges: no
+Refactor: no
+Search: no
+Test
+Versions: no
+WhereUsed: no
+---
+| script | browser test |
+| seconds before timeout | 140 |
+| open | http://192.168.10.13/embrace2 |
+| wait | 15 | seconds |
+| wait for visible | Login |
+| enter | admin@homeunion.com | as | xpath=//*[@id="loginForm"]/div[2]/div/input |
+| enter | password | as | xpath=//*[@id="loginForm"]/div[3]/div/input |
+| click | Login | |
+| wait | 10 | seconds |
+| click | id=searchProperty |
+| wait | 5 | seconds |
+| click | 5822752590 |
+| wait | 3 | seconds |
+| click | Financials |
+| wait | 3 | seconds |
+| click | Photos |
+| wait | 5 | seconds |
+| click | Wishlists |
+| wait | 3 | seconds |
