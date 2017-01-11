@@ -15,18 +15,18 @@ Test
 | script | embrace |
 | logintoembrace | admin@homeunion.com | password |
 | wait | 5 | seconds |
-|  propertysearchbySource | MLS |
+| propertysearchbySource | MLS |
 | propertysearchbyAddress | 5107 BEECH DRIVE |
-| note | propertysearchbyCity | Indianapolis |
-| note |propertysearchbyZip | 46254 |
-| note |propertysearchbyNIR | A |
-| note |propertysearchbyHIL | Atlanta |
-| note | propertysearch | 1 | byInvAmt | 100000 |
-| note |propertysearch | 1 | byListPrice | 50000 |
-| note |propertysearch | 1990 | byYearBuilt | 2010 |
-| note | propertysearch | 1 | byYield | 15 |
-| note |propertysearchbyState | Alabama |
-| note |propertysearchbyTag | Agent Previewed |
+| propertysearchbyCity | Indianapolis |
+| propertysearchbyZip | 46254 |
+| propertysearchbyNIR | A |
+| propertysearchbyHIL | Atlanta |
+| propertysearch | 1 | byInvAmt | 100000 |
+| propertysearch | 1 | byListPrice | 50000 |
+| propertysearch | 1990 | byYearBuilt | 2010 |
+| propertysearch | 1 | byYield | 15 |
+| propertysearchbyState | Alabama |
+| propertysearchbyTag | Agent Previewed |
 
 
 
