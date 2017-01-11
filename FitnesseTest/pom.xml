@@ -21,7 +21,7 @@
 		<maven-classpath-plugin.version>1.9</maven-classpath-plugin.version>
 		<fitnesse.version>20161106</fitnesse.version>
 		<selenium.version>2.53.1</selenium.version>
-		<slf4j.version>1.7.21</slf4j.version>
+		 <slf4j.version>1.7.21</slf4j.version> 
 		<apache.http.version>4.5.2</apache.http.version>
 		<!-- classpath that Fitnesse uses when not starting from IDE/maven -->
 		<standalone.classpath>wiki/fixtures</standalone.classpath>
@@ -46,7 +46,16 @@
 			<version>${fitnesse.version}</version>
 			<scope>provided</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-jdk14</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
@@ -142,16 +151,7 @@
 			<version>1.1.11</version>
 		</dependency>
 		<!-- com.jayway.jsonpath uses slf4j for logging, apache http client redirect to slf4j -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-jdk14</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency>
+		
 		<dependency>
 			<groupId>com.jayway.jsonpath</groupId>
 			<artifactId>json-path</artifactId>
