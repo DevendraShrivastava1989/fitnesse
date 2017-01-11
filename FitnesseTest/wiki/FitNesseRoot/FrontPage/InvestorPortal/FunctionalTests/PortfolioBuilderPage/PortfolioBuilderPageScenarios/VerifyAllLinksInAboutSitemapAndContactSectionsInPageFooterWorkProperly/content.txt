@@ -1,0 +1,88 @@
+Goal of the Test Case:
+This test case to verify that all links in "About", "Sitemap" and "Contact" sction of Page footer work properly.
+
+Steps:
+1. Login to Production
+2. Go to Portfolio Builder page.
+3. Click on links in page footer and verify corresponding page opens in new tab.
+
+| Import |
+| fitnesse |
+| fitnesse.fixtures |
+
+!| script | browser test |
+| loginto | demo@homeunion.com | ${Environment} | 123456 |
+| note|Navigate to PORTFOLIO BUILDER page|
+| click | PORTFOLIO BUILDER  |
+| wait | 15 | seconds |
+| scroll to|ABOUT|
+| note|click on About Us link|
+| click|About Us|
+| wait | 2|seconds|
+| switch to next tab|
+| is visible|HomeUnion Helps You Invest in Real Estate|
+| close tab|
+| note|click on Privacy link|
+| click|Privacy|
+| wait | 2|seconds|
+| switch to next tab|
+| is visible|PRIVACY POLICY|
+| close tab|
+| note|click on Terms of Use link|
+| click|Terms of Use|
+| wait | 2|seconds|
+| switch to next tab|
+| is visible|TERMS OF USE|
+| close tab|
+| note|click on Disclaimer link|
+| click|Disclaimer|
+| wait | 2|seconds|
+| switch to next tab|
+| is visible|DISCLAIMER|
+| close tab|
+| note|click on Licensing link|
+| click|Licensing|
+| wait | 2|seconds|
+| switch to next tab|
+| is visible|LICENSING|
+| close tab|
+| note|click on Get Started link|
+| click|Get Started|
+| wait | 2|seconds|
+| switch to next tab|
+| is visible|Build Your Real Estate Portfolio|
+| close tab|
+| note|click on Investment Locations link|
+| click|Investment Locations|
+| wait | 2|seconds|
+| switch to next tab|
+| is visible|Real Estate Investment Locations|
+| close tab|
+| note|click on HomeUnion Rentals link|
+| click|HomeUnion Rentals|
+| wait | 2|seconds|
+| switch to next tab|
+| is visible|CURRENT RESIDENTS|
+| close tab|
+| note|click on FAQ link|
+| click|FAQ|
+| wait | 2|seconds|
+| switch to next tab|
+| is visible|Frequently Asked Questions|
+| close tab|
+| note|click on Contact Us link|
+| click|Contact Us|
+| wait | 2|seconds|
+| switch to next tab|
+| is visible|We Would Love to Hear From You|
+| close tab|
+| note|click on Partner with Us link|
+| click|Partner with Us|
+| wait | 2|seconds|
+| switch to next tab|
+| is visible|Become a HomeUnion Investment Partner|
+| close tab|
+| logoutofipcustom|
+
+
+

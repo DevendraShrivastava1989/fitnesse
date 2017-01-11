@@ -1,0 +1,14 @@
+Steps:
+1.Open https://investor.homeunion.com
+2.Enter invalid Email And Password
+3.Verify Login is not successful.
+
+
+
+|Import|
+|fitnesse|
+|fitnesse.fixtures|
+
+|script|browser test|
+|loginto|demo@homeunion.com|Prod|1234567|
+|is visible|Sorry, the email address and password do not match, please try again or reset your password.|

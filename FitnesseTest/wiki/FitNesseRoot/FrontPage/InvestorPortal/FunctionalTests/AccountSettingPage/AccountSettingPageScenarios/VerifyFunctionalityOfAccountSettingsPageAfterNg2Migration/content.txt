@@ -1,0 +1,41 @@
+!path C:\Users\Administrator\OneDrive\target\test-classes\
+!path C:\Users\Administrator\OneDrive\target\classes\
+
+
+|Import           |
+|fitnesse_HU      |
+|fitnesse.fixtures|
+
+|Library       |
+|investorportal|
+
+!| script          |investorportal  |
+| loginto           |homeuniontest@gmail.com  |stg    |Homeunion2016  |
+| wait|15|seconds|
+| click| xpath=//a[@class="dropdown-toggle pointer"]/span|
+| click| ACCOUNT SETTINGS|
+| is visible|Account Settings|
+| click|UPDATE|
+| is visible|Confirm Password|
+| click|SAVE|
+| is visible|This value is required.|
+| enter|Homeunion2016|as|Enter your login password|
+| click|SAVE|
+| is visible|No changes made!|
+| click|OK|
+| click|CANCEL|
+| reject|is visible|Confirm Password|
+| enter|Homeunion2016|as|xpath=//input[@id="changepassword"]|
+| enter|Homeunion2016|as|xpath=//input[@id="newpassword"]|
+| enter|Homeunion2016|as|xpath=//input[@id="retypepassword"]|
+| click|SAVE|
+| wait|10|seconds|
+| show|take screenshot|pic|
+| is visible|Your Password has been changed successfully|
+| click|OK|
+| logoutofip|
+
+
+
+
+

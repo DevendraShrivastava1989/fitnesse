@@ -1,0 +1,84 @@
+<test page>
+!path /Users/Karthik/Documents/git/TestingScripts/HomeUnion/target/test-classes/
+!path /Users/Karthik/Documents/git/TestingScripts/HomeUnion/target/classes/
+
+|Import           |
+|fitnesse         |
+|fitnesse.fixtures|
+
+
+!|Library             |
+|stringtointcomparison|
+|StringFixture        |
+
+|scenario                                 |verify income statement                                                                                 |
+|$temp=                                   |replace all      |[$,]                                    |in|$Operating_cash_balance_Propertyware|with||
+|$Operating_cash_balance_Propertyware_int=|convert to double|$temp                                                                                 |
+|$temp=                                   |replace all      |[$,]                                    |in|$Operating_cash_balance_prod        |with||
+|$Operating_cash_balance_prod_int=        |convert to double|$temp                                                                                 |
+|check                                    |echo             |$Operating_cash_balance_Propertyware_int|~=$Operating_cash_balance_prod_int           |
+
+!|storyboard                 |funda test                              |
+|loginto                     |rohantest@homeuniontest.com|stg|Rohan123|
+|setuptransactionpage        |Sep                                     |
+|logintopw                                                            |
+|performtransactioncomparison|a.alfadalah@yahoo.com                   |
+|performtransactioncomparison|abheylamba@gmail.com                    |
+|performtransactioncomparison|abrahamkohn@ak-plastics.com             |
+|performtransactioncomparison|mopos@aol.com                           |
+|performtransactioncomparison|ashess34@gmail.com                      |
+|performtransactioncomparison|ateipel@gmail.com                       |
+|performtransactioncomparison|adam.debellis@gmail.com                 |
+|performtransactioncomparison|akhil@artiman.com                       |
+|performtransactioncomparison|alexfajardo@elsolnec.org                |
+|performtransactioncomparison|alex.soo@powerhouse-realestate.com      |
+|performtransactioncomparison|alokka@gmail.com                        |
+|performtransactioncomparison|ambarbajaj@gmail.com                    |
+|performtransactioncomparison|13818files@gmail.com                    |
+|performtransactioncomparison|amolpatel@gmail.com                     |
+|performtransactioncomparison|amrutbudihal@gmail.com                  |
+|performtransactioncomparison|avdurbha@yahoo.com                      |
+|performtransactioncomparison|andrew@northernpacificdigital.com       |
+|performtransactioncomparison|afrishman71@hotmail.com                 |
+|performtransactioncomparison|lpirish@gmail.com                       |
+|performtransactioncomparison|dhawan@gmail.com                        |
+|performtransactioncomparison|tonylau8889@hotmail.com                 |
+|performtransactioncomparison|apumody@hotmail.com                     |
+|performtransactioncomparison|apurkamdar@gmail.com                    |
+|performtransactioncomparison|arie.moller@gmail.com                   |
+|performtransactioncomparison|arisin@gmail.com                        |
+|performtransactioncomparison|arunj@iitbombay.org                     |
+|performtransactioncomparison|bda1120@yahoo.com                       |
+|performtransactioncomparison|beau.champion@att.net                   |
+|performtransactioncomparison|lalkakani1965@gmail.com                 |
+|performtransactioncomparison|bhammoth@gmail.com                      |
+|performtransactioncomparison|bpiper61099@comcast.net                 |
+|performtransactioncomparison|sutherlandbr@gmail.com                  |
+|performtransactioncomparison|sbrijesh@gmail.com                      |
+|performtransactioncomparison|callum.runcie@hotmail.com               |
+|performtransactioncomparison|camiloclavijo8@gmail.com                |
+|performtransactioncomparison|cgonz7884@gmail.com                     |
+|performtransactioncomparison|Carlos.Ortiz@SteadfastCo.com            |
+|performtransactioncomparison|cdubd10@gmail.com                       |
+|performtransactioncomparison|cedric.gordon@sbcglobal.net             |
+|performtransactioncomparison|chanesteiner@gmail.com                  |
+|performtransactioncomparison|charles_davis1@msn.com                  |
+|performtransactioncomparison|chrisye2@gmail.com                      |
+|performtransactioncomparison|cjhut1@gmail.com                        |
+|performtransactioncomparison|chris@craytek.com                       |
+|performtransactioncomparison|cmtragni@gmail.com                      |
+|performtransactioncomparison|cmhotch@hotmail.com                     |
+|performtransactioncomparison|cdsanders70@yahoo.com                   |
+|performtransactioncomparison|derwin@freedomgeneral.com               |
+|performtransactioncomparison|damien240@sbcglobal.net                 |
+|performtransactioncomparison|rescuu2002@yahoo.com                    |
+|performtransactioncomparison|sq3@att.net                             |
+|performtransactioncomparison|dario.tonelli@gmail.com                 |
+|performtransactioncomparison|djbelliveau@gmail.com                   |
+|performtransactioncomparison|dslrosen@live.com                       |
+|performtransactioncomparison|david@AdvEngCon.com                     |
+|performtransactioncomparison|derek.jankowski@gmail.com               |
+|performtransactioncomparison|detaylor01@gmail.com                    |
+|performtransactioncomparison|shop4dhine@gmail.com                    |
+|logoutofpw                                                           |
+|logout                                                               |

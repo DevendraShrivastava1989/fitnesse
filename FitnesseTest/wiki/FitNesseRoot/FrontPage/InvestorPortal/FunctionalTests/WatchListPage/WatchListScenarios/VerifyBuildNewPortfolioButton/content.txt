@@ -1,0 +1,12 @@
+This test is to verift that "Build Portfolio" button has chnged to "Build New Portfolio" button.
+
+| Import |
+| fitnesse |
+| fitnesse.fixtures |
+
+| Script | browser test |
+| gotowatchlist | demo@homeunion.com | stg | 123456 |
+| click | Portfolio List|
+| wait  |2 |seconds|
+| is visible|BUILD NEW PORTFOLIO|
+| wait  |3 |seconds|

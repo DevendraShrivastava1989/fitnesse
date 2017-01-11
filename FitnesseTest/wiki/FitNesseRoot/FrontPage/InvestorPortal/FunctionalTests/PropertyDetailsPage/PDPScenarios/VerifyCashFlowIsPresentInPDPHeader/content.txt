@@ -1,0 +1,22 @@
+Goal of the Test Case:
+-This test is to verify that Cash Flow text is present in PDP Header.
+
+Steps:
+1.Login to Staging.
+2.Go to PDP for any property.
+3.Verify that Cash Flow text is present in PDP header.
+
+| Import |
+| fitnesse |
+| fitnesse.fixtures |
+
+!| script | browser test |
+| loginto | demo@homeunion.com | stg | 123456 |
+| click| PROPERTY SEARCH|
+| wait | 10 | seconds |
+| note | Click on 1st property|
+| click|xpath=//table[@id="search-results"]/tbody/tr/td[1]/div[1]/div[2]/div/p|
+| wait| 10 | seconds|
+| note | Verify Cash Flow Text is present |
+| check|value of| xpath=//div[@id="propDetailHeaderDesktop"]/div[1]/div[4]/div/section/p/a/b|CASH FLOW|
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<properties>
+<Edit>true</Edit>
+<Files>true</Files>
+<Help/>
+<Properties>true</Properties>
+<RecentChanges>true</RecentChanges>
+<Refactor>true</Refactor>
+<Search>true</Search>
+<Suite>true</Suite>
+<Suites/>
+<SymbolicLinks>
+<Login>.FrontPage.InvestorPortal.FunctionalTests.LoginPage.LoginScenarios.VerifyLoginIsSuccessfulWithValidCredentials</Login>
+<Performance_IncomeStatement>.FrontPage.InvestorPortal.FunctionalTests.Performance_Page.IncomeStatementTab.IncomeStatementTabScenarios.VerifyIncomeStatementTabDisplaysDataForSelectedInvestor</Performance_IncomeStatement>
+ <!--<PropertySearchFilterFunctionality>.FrontPage.InvestorPortal.FunctionalTests.PropertySearchPage.PropertySearchScenarios.VerifyThatPropertiesAreDisplayedAccordingToSelectedLocations</PropertySearchFilterFunctionality>
+<PropertySearchVerifyAvailability>.FrontPage.InvestorPortal.FunctionalTests.PropertySearchPage.PropertySearchScenarios.VerifyThePropertyStatus</PropertySearchVerifyAvailability>
+<PropertySearchVerifyNIR>.FrontPage.InvestorPortal.FunctionalTests.PropertySearchPage.PropertySearchScenarios.verifyTheNIRStatus</PropertySearchVerifyNIR>
+-->
+<Transaction>.FrontPage.InvestorPortal.FunctionalTests.TransactionsPage.TransactionPageScenarios.VerifyProgressPercenatageForAllSectionsOnTransactionsPage</Transaction>
+ <!--<WatchListSort>.FrontPage.InvestorPortal.FunctionalTests.WatchListPage.WatchListScenarios.VerifythesortingorderonPortfolioWatchlistpage</WatchListSort>
+ -->
+ </SymbolicLinks>
+<Versions>true</Versions>
+<WhereUsed>true</WhereUsed>
+</properties>

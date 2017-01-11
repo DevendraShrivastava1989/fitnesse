@@ -1,0 +1,2 @@
+!1 Test suite for verifying all combinations of plans, investment styles
+!contents -R2 -g -p -f -h

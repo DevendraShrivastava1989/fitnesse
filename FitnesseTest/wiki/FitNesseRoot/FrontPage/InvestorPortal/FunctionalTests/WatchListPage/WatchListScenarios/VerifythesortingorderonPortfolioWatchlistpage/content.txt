@@ -1,0 +1,42 @@
+!contents -R3 -g -p -f -h
+Goalof the Test Case: This test is to verify that the sorting order in the portfolio watchlist page is correct.
+
+Steps:
+1.Login to Investor portal. (select an investor who has multiple portfolios to verify the sorting order)
+2.Go to Portfolio Watchlist page.
+3.Verify the sorting is correct based on 'recently created' date.
+4.Repeat the steps for various sorting criteria - 'investment amount', 'yield', 'total return', 'cash on cash return'
+
+!path C:\Users\Administrator\OneDrive\target\test-classes\
+!path C:\Users\Administrator\OneDrive\target\classes\
+|Import           |
+|fitnesse_HU         |
+|fitnesse.fixtures|
+
+!| Library     |
+|investorportal|
+|StringFixture |
+
+|script   |investorportal                                              |
+|loginto  |demo@homeunion.com                    |${Environment}|123456|
+|click    |WATCH LIST                                                  |
+|wait     |8                                     |seconds              |
+|note     |verify the sorting based on 'recently created'              |
+|$result =|verifythesortorderonportfoliowatchlist|Recently Created     |
+|check    |echo                                  |$result       |PASS  |
+|note     |verify the sorting based on 'recently modified'             |
+|$result =|verifythesortorderonportfoliowatchlist|Recently modified    |
+|check    |echo                                  |$result       |PASS  |
+|note     |verify the sorting based on 'investment amount'             |
+|$result =|verifythesortorderonportfoliowatchlist|Investment Amount    |
+|check    |echo                                  |$result       |PASS  |
+|note     |verify the sorting based on 'total return'                  |
+|$result =|verifythesortorderonportfoliowatchlist|Total Return         |
+|check    |echo                                  |$result       |PASS  |
+|note     |verify the sorting based on 'yield'                         |
+|$result =|verifythesortorderonportfoliowatchlist|Yield                |
+|check    |echo                                  |$result       |PASS  |
+|note     |verify the sorting based on 'cash on cash return'           |
+|$result =|verifythesortorderonportfoliowatchlist|Cash on Cash Return  |
+|check    |echo                                  |$result       |PASS  |
+|logoutofip|

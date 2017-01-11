@@ -1,0 +1,74 @@
+!4 '''Goal''' - This test checks various scenarios of 'Any' plan with different investment amounts ranging from $50,000 to $500,000 and different types of financing - 25%down, All-cash and SDIRA.
+!| Library    |
+|StringFixture|
+
+|script|json http test|
+|get authentication   |
+
+!5 Test 1 - Check 'Any' plan with various investment amounts, Financing - 25%down
+|check portfolio                             |
+|investment|allcash|SDIRA|plan      |portfoliogenerated?|
+|50000     |false  |false|${ANY_PLAN}|>0    |
+|75000     |false  |false|${ANY_PLAN}|>0    |
+|100000    |false  |false|${ANY_PLAN}|>0    |
+|125000    |false  |false|${ANY_PLAN}|>0    |
+|150000    |false  |false|${ANY_PLAN}|>0    |
+|175000    |false  |false|${ANY_PLAN}|>0    |
+|200000    |false  |false|${ANY_PLAN}|>0    |
+|225000    |false  |false|${ANY_PLAN}|>0    |
+|250000    |false  |false|${ANY_PLAN}|>0    |
+|275000    |false  |false|${ANY_PLAN}|>0    |
+|300000    |false  |false|${ANY_PLAN}|>0    |
+|325000    |false  |false|${ANY_PLAN}|>0    |
+|350000    |false  |false|${ANY_PLAN}|>0    |
+|375000    |false  |false|${ANY_PLAN}|>0    |
+|400000    |false  |false|${ANY_PLAN}|>0    |
+|425000    |false  |false|${ANY_PLAN}|>0    |
+|450000    |false  |false|${ANY_PLAN}|>0    |
+|475000    |false  |false|${ANY_PLAN}|>0    |
+|500000    |false  |false|${ANY_PLAN}|>0    |
+
+
+!5 Test 2 - Check 'Any' plan with various investment amounts, Financing - All-cash
+|check portfolio                             |
+|investment|allcash|SDIRA|plan      |portfoliogenerated?|
+|100000    |true   |false|${ANY_PLAN}|>0    |
+|125000    |true   |false|${ANY_PLAN}|>0    |
+|150000    |true   |false|${ANY_PLAN}|>0    |
+|175000    |true   |false|${ANY_PLAN}|>0    |
+|200000    |true   |false|${ANY_PLAN}|>0    |
+|225000    |true   |false|${ANY_PLAN}|>0    |
+|250000    |true   |false|${ANY_PLAN}|>0    |
+|275000    |true   |false|${ANY_PLAN}|>0    |
+|300000    |true   |false|${ANY_PLAN}|>0    |
+|325000    |true   |false|${ANY_PLAN}|>0    |
+|350000    |true   |false|${ANY_PLAN}|>0    |
+|375000    |true   |false|${ANY_PLAN}|>0    |
+|400000    |true   |false|${ANY_PLAN}|>0    |
+|425000    |true   |false|${ANY_PLAN}|>0    |
+|450000    |true   |false|${ANY_PLAN}|>0    |
+|475000    |true   |false|${ANY_PLAN}|>0    |
+|500000    |true   |false|${ANY_PLAN}|>0    |
+
+!5 Test 3 - Check 'Any' plan with various investment amounts, Financing - Financed-SDIRA
+|check portfolio                             |
+|investment|allcash|SDIRA|plan      |portfoliogenerated?|
+|50000     |false  |true |${ANY_PLAN}|>0    |
+|75000     |false  |true |${ANY_PLAN}|>0    |
+|100000    |false  |true |${ANY_PLAN}|>0    |
+|125000    |false  |true |${ANY_PLAN}|>0    |
+|150000    |false  |true |${ANY_PLAN}|>0    |
+|175000    |false  |true |${ANY_PLAN}|>0    |
+|200000    |false  |true |${ANY_PLAN}|>0    |
+|225000    |false  |true |${ANY_PLAN}|>0    |
+|250000    |false  |true |${ANY_PLAN}|>0    |
+|275000    |false  |true |${ANY_PLAN}|>0    |
+|300000    |false  |true |${ANY_PLAN}|>0    |
+|325000    |false  |true |${ANY_PLAN}|>0    |
+|350000    |false  |true |${ANY_PLAN}|>0    |
+|375000    |false  |true |${ANY_PLAN}|>0    |
+|400000    |false  |true |${ANY_PLAN}|>0    |
+|425000    |false  |true |${ANY_PLAN}|>0    |
+|450000    |false  |true |${ANY_PLAN}|>0    |
+|475000    |false  |true |${ANY_PLAN}|>0    |
+|500000    |false  |true |${ANY_PLAN}|>0    |

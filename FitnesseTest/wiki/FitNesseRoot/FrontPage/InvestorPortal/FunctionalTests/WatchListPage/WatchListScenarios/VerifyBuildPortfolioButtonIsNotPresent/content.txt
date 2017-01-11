@@ -1,0 +1,14 @@
+This test is to verify that "Build Portfolio" button is not present for Portfolio List tab.
+
+| Import |
+| fitnesse |
+| fitnesse.fixtures |
+
+| Script | browser test |
+| gotowatchlist | demo@homeunion.com | stg | 123456 |
+| click | Portfolio List|
+| wait  |2 |seconds|
+| note   |verify that Build Portfolio button is not present for Portfolio List tab|
+| reject |is visible|Build Portfolio|
+| is visible|BUILD NEW PORTFOLIO|
+| wait  |3 |seconds|

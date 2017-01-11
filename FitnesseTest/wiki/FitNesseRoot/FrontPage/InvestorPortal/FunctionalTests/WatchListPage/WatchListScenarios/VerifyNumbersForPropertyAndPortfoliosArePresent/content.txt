@@ -1,0 +1,13 @@
+This test case is to verify property and portfolio counts are present in Property watch list and Portfolio watch List respectively.
+
+
+| Script | browser test |
+| gotowatchlist | demo@homeunion.com | stg | 123456 |
+| click | Portfolio List|
+| wait  |2 |seconds|
+| note|Check property count is present|
+| is visible|xpath=//div[@class="watch-list-page"]/div/ul/li/a/span|
+| note| Check Portfolio count is present|
+| wait  |3 |seconds|
+| is visible|xpath=//div[@class="watch-list-page"]/div/ul/li[2]/a/span|
+| wait  |3 |seconds|

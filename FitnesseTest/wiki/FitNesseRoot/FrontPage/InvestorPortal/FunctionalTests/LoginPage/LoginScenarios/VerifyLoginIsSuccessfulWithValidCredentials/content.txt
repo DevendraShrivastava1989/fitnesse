@@ -1,0 +1,22 @@
+Steps:
+1.Open https;//investor.homeunion.com
+2.Enter valid Email And Password
+3.Verify Login is successful.
+
+|Import|
+|fitnesse|
+|fitnesse.fixtures|
+
+
+|script|browser test|
+|open|https://investor.homeunion.com/#login|
+|set browser size to maximum|
+|wait|3|seconds|
+|enter|demo@homeunion.com|as|Email|
+|wait|3|seconds|
+|enter|123456|as|Password|
+|wait|3|seconds|
+|click|Login|
+|wait|3|seconds|
+|is visible|WATCH LIST|
+|logoutofip|

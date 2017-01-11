@@ -1,0 +1,22 @@
+This test case is to verify that SDIRA overlay does not get opened in same tab for Logged Out portfolio builder page.
+
+| Import |
+| fitnesse |
+| fitnesse.fixtures |
+
+| Script | browser test |
+| open | http://investorstaging.homeunion.com/#portfolio |
+| click | Financing|
+| show  |take screenshot|photo1|
+| wait  |2 |seconds|
+| show  |take screenshot|photo2|
+| click |Learn more about Financed-SDIRA |
+| show  |take screenshot|photo3 |
+| switch to next tab |
+| wait  |5 |seconds|
+| show  |take screenshot|photo4|
+| is visible| Using a Self-Directed IRA To  |
+| wait  |2 |seconds|
+| switch to previous tab |
+| wait  |5 |seconds |
+| is visible|Portfolio Builder|

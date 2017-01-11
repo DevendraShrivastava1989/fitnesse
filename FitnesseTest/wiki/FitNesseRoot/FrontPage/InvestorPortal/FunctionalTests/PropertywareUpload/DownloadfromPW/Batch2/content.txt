@@ -1,0 +1,23 @@
+<test page>
+!path /Users/Karthik/Documents/git/TestingScripts/HomeUnion/target/test-classes/
+!path /Users/Karthik/Documents/git/TestingScripts/HomeUnion/target/classes/
+
+|Import           |
+|fitnesse         |
+|fitnesse.fixtures|
+
+!|Library          |
+|propertywareupload|
+
+
+!|script|propertywareupload|
+|logintopw                 |
+|openbillpaymentreport     |
+|click  |Bill #            |
+|wait   |5     |seconds    |
+|selecttransaction2        |
+|logoutofpw                |
+
+
+
+

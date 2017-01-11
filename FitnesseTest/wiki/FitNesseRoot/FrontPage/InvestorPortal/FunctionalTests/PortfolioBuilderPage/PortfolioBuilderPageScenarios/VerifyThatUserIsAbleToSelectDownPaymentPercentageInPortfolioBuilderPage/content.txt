@@ -1,0 +1,38 @@
+Goal of the test case: This test case is to verify that on Portfolio builder page, user is able to select different down payment percentages.
+
+Steps:
+1. Login to Staging.
+2. Go to Portfolio builder page.
+3. Verify that on Portfolio builder page, user is able to select different down payment percentages.
+
+!path C:\Users\Administrator\OneDrive\target\test-classes\
+!path C:\Users\Administrator\OneDrive\target\classes\
+
+|Import           |
+|fitnesse_HU      |
+|fitnesse.fixtures|
+
+|Library       |
+|string fixture|
+|mathoperations|
+|investorportal|
+
+!| script          |investorportal                                                        |
+|loginto           |demo@homeunion.com  |stg    |123456                                   |
+|click             |PORTFOLIO BUILDER   |                                                 |
+|wait              |10                  |seconds                                          |                                                  
+|$PortfolioValueInSummary_DefaultDownpaymt =  |value of|xpath=//div[@id="portfolio-results"]/portfolio-info-app/div/div/div[2]/section[2]/h1|
+|$InvestmentAmountInSummary_DefaultDownpaymt =|value of|xpath=//div[@id="portfolio-results"]/portfolio-info-app/div/div/div[2]/section[3]/h1|       
+|$RentInSummary_DefaultDownpaymt =            |value of|xpath=//div[@id="portfolio-results"]/portfolio-info-app/div/div/div[2]/section[4]/h1|                   
+|$COCReturnInSummary_DefaultDownpaymt =       |value of|xpath=//div[@id="portfolio-results"]/portfolio-info-app/div/div/div[2]/section[5]/h1|             
+|$YieldInSummary_DefaultDownpaymt =           |value of|xpath=//div[@id="portfolio-results"]/portfolio-info-app/div/div/div[2]/section[6]/h1|                  
+|$TotalReturnInSummary_DefaultDownpaymt =     |value of|xpath=//div[@id="portfolio-results"]/portfolio-info-app/div/div/div[2]/section[7]/h1|
+|scroll to|TOTAL|
+|selectdownpaymentpercentageonportfoliobuilderpage |30%|
+|$PortfolioValueInSummary_SelectedDownpaymt =  |value of|xpath=//div[@id="portfolio-results"]/portfolio-info-app/div/div/div[2]/section[2]/h1|
+|$InvestmentAmountInSummary_SelectedDownpaymt =|value of|xpath=//div[@id="portfolio-results"]/portfolio-info-app/div/div/div[2]/section[3]/h1|       
+|$RentInSummary_SelectedDownpaymt =            |value of|xpath=//div[@id="portfolio-results"]/portfolio-info-app/div/div/div[2]/section[4]/h1|                   
+|$COCReturnInSummary_SelectedDownpaymt =       |value of|xpath=//div[@id="portfolio-results"]/portfolio-info-app/div/div/div[2]/section[5]/h1|             
+|$YieldInSummary_SelectedDownpaymt =           |value of|xpath=//div[@id="portfolio-results"]/portfolio-info-app/div/div/div[2]/section[6]/h1|                  
+|$TotalReturnInSummary_SelectedDownpaymt =     |value of|xpath=//div[@id="portfolio-results"]/portfolio-info-app/div/div/div[2]/section[7]/h1|
+        

@@ -1,0 +1,25 @@
+Goal of the test Case:
+This test case is to verify that SDIRA overlay opens For Property Search Page.
+
+Steps:
+1. Login to Staging.
+2. Go to Property srarch page.
+3. Click On Financing to open tooltip.
+4. Click on Learn more about Financed-SDIRA link from tooltip.
+5. Verify that SDIRA overlay opens For Property Search Page.
+
+
+| Import |
+| fitnesse |
+| fitnesse.fixtures |
+
+| Script | browser test |
+| loginto | demo@homeunion.com | stg | 123456 |
+| click|PROPERTY SEARCH|
+| wait| 2|seconds|
+| click | Financing|
+| wait  |2 |seconds|
+| click |Learn more about Financed-SDIRA |
+| wait  |5 |seconds|
+| is visible| Homeunion Makes it Easy to Use|
+| wait  |2 |seconds|

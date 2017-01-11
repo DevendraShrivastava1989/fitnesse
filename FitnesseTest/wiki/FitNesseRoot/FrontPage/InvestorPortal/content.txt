@@ -1,0 +1,10 @@
+!contents -R2 -g -p -f -h
+!4 Special Pages
+!5 * [[List of functions to be automated][.FrontPage.Functionstobeautomated]]
+!5 * [[List of available scenarios][.FrontPage.ScenarioList_InvestorPortal]]
+!define TEST_SYSTEM {slim}
+!define COLLAPSE_SETUP {true}
+!define COLLAPSE_TEARDOWN {true}
+!path fixtures
+!path fixtures/*.jar
+!path lib/*.jar

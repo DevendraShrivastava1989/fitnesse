@@ -1,0 +1,51 @@
+Goal of the Test Case:
+-This test is to verify that Asset Managment fee value is correct on PDP
+
+Steps:
+1.Login to Production.
+2.Go to PDP for any property.
+3.Verify that Asset Managment fee value is correct on PDP.
+
+!path C:\Users\Administrator\OneDrive\target\test-classes\
+!path C:\Users\Administrator\OneDrive\target\classes\
+
+|Import           |
+|fitnesse_HU      |
+|fitnesse.fixtures|
+
+|Library       |
+|string fixture|
+|mathoperations|
+|investorportal|
+
+!| script          |investorportal                                                        |
+|loginto           |demo@homeunion.com  |${Environment}    |123456                        |
+|click             |PROPERTY SEARCH                                                       |
+|wait              |10                  |seconds                                          |
+|note              |Click on 1st property                                                 |
+|click             |xpath=//table[@id="search-results"]/tbody/tr/td[1]/div[1]/div[2]/div/p|
+|wait              |5                   |seconds                                          |
+|click             |Financial Details                                                     |
+|wait              |3                   |seconds                                          |
+|scroll to         |${CASHFLOW}                                                           |
+|click             |DETAILED CALCULATIONS                                                 |
+|wait              |2                   |seconds                                          |
+|$HOAPresent=      |value of        |xpath=.//*[@id='fin-details']/angular-app/div/financials-section/div[2]/div[2]/div[1]/div/table/tbody/tr[5]/td[2]                                              |
+|$AMlocator =      |getAMFeelocator     |$HOAPresent                                      |
+|$listprice =      |value of            |${PDP_Header_ListPrice}                          |
+|$listprice=       |replace all         |[$,]              |in  |$listprice       |with | |
+|$AMFeePercent =   |GetAMFeePercentage  |$listprice                                       |
+|$netrentalincome =|value of            |${Year1_TotalIncome}                             |
+|$netrentalincome= |replace all         |[$,]              |in  |$netrentalincome |with | |
+|$AMFee=           |value of            |$AMlocator                        |
+|$AMFee=           |replace all         |[-,$]             |in  |$AMFee           |with | |
+|$ExpectedAMFee =  |multiply            |$netrentalincome  |    |$AMFeePercent            |
+|$ExpectedAMFee =  |divide              |$ExpectedAMFee    |    |12                       |
+|$ExpectedAMFee =  |convertdoubletoint  |$ExpectedAMFee                                   |
+|check             |echo                |$AMFee            |$ExpectedAMFee                |
+
+
+#| note | Verify Cash Flow Text is present |
+#| check|value of| xpath=//div[@id="propDetailHeaderDesktop"]/div[1]/div[4]/div/section/p/a/b|CASH FLOW|
+
+

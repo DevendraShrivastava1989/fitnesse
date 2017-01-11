@@ -1,0 +1,12 @@
+This test case is to verify that Income Statement page is not showing rounded off values.
+
+| Import |
+| fitnesse |
+| fitnesse.fixtures |
+
+| Script | browser test |
+| gotoperformance | demo@homeunion.com | stg | 123456 |
+| click | Income Statement|
+| wait  |2 |seconds|
+| check |value of | xpath=//table[@id="incomeStatementTable"]/tbody/tr[6]/td[6]|-|
+| wait  |2 |seconds|

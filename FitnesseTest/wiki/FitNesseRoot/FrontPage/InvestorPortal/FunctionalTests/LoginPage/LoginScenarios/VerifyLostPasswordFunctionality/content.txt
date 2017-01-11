@@ -1,0 +1,57 @@
+This test case is to verify Lost password functionality.
+
+|Import|
+|fitnesse|
+|fitnesse.fixtures|
+
+
+|script|browser test|
+|open|https://investor.homeunion.com/#login|
+|set browser size to maximum|
+|wait|5|seconds|
+|note|click on Lost passord link|
+|click|Lost Password?|
+|wait|10|seconds|
+|note|enter correct email addrss in "Lost Passord" window|
+|enter|homeuniontest@gmail.com|as|Email|
+|wait|1|seconds|
+|note|Click on Submit button in "Lost password" window|
+|click|SUBMIT|
+|wait|3|seconds|
+|click|OK|
+|note| open https://mail.google.com/mail/#inbox|
+|open|https://mail.google.com/mail/#inbox|
+|wait|3|seconds|
+|note|enter gmail account credentials to Login to gmail|
+|enter|homeuniontest@gmail.com|as|Enter your email|
+|click|Next|
+|wait|1|seconds|
+|enter|Homeunion2016|as|Password|
+|click|Sign in|
+|note|click on "Homeunion-Password Reset Instructions" email|
+|click|support|
+|note|click on button to create a new password|
+|click|CREATE A NEW PASSWORD|
+|wait|20|seconds|
+|close tab|
+|note| enter new password for investor portal's account|
+|click|New Password|
+|enter|Homeunion2015|as|New Password|
+|click|Confirm Password|
+|enter|Homeunion2015|as|Confirm Password|
+|show|take screenshot|pic3|
+|note|click on "Save" button in "Choose a new Password" window|
+|click|xpath=//button[@id="change-pw-btn"]|
+|wait|5|seconds|
+|click|OK|
+|wait|5|seconds|
+|show|take screenshot|pic|
+|note|Enter investor portal's account creadentials with new password|
+|enter|homeuniontest@gmail.com|as|Email|
+|enter|Homeunion2015|as|Password|
+|show|take screenshot|pic1|
+|note|click on Login button|
+|click|xpath=//button[@id="page-login-btn"]|
+|wait|25|seconds|
+|is visible|PROPERTY SEARCH|
+|logoutofip|

@@ -1,0 +1,18 @@
+This test case is to verify SDIRA Overlay opens for Portfolio Builder Page.
+
+
+|Import           |
+|fitnesse         |
+|fitnesse.fixtures|
+
+|Script    |browser test                   |
+|loginto   |demo@homeunion.com |stg |123456|
+|click     |PORTFOLIO BUILDER              |
+|wait      |2                  |seconds    |
+|click     |Financing                      |
+|wait      |2                  |seconds    |
+|click     |Learn more about Financed-SDIRA|
+|wait      |5                  |seconds    |
+|is visible|Homeunion Makes it Easy to Use |
+|wait      |2                  |seconds    |
+|logoutofipcustom                          |

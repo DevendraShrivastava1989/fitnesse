@@ -1,0 +1,500 @@
+!define Environment {prod}
+!define RentalIncome {xpath=.//*[@id='incomeStatementTable']/tbody/tr[2]/td[14]}
+!define DistributionAmount {xpath=.//*[@id='inv-summary-data']/div[1]/div[2]/div/div[2]/table/tbody/tr[1]/td[2]/span}
+
+-----------PDP Page-----------
+!define PDP_Header_ListPrice {xpath=.//*[@id='propDetailHeaderDesktop']/div/div[2]/div[1]/h1}
+!define PDP_BMS_AssetMgmtFee {xpath=.//*[@id='fin-details']/angular-app/div/financials-section/div[2]/div[2]/div[1]/div/table/tbody/tr[5]/td[3]/span}
+!define Year1_TotalIncome {xpath=.//*[@id='overlay-Annual']/td[2]}
+!define Detailed_calculations {xpath=.//*[@id='fin-details']/angular-app/div/financials-section/div[2]/div[3]/button}
+!define CASHFLOW {xpath=.//*[@id='fin-details']/angular-app/div/financials-section/div[2]/div[2]/div[1]/div/table/tbody/tr[10]/td/div[1]}
+----------End of PDP Page------
+
+|Import           |
+|fitnesse         |
+|fitnesse.fixtures|
+
+|Library     |
+|echo fixture|
+
+|scenario|loginto    |username |prod |password |
+|open    |https://investor.homeunion.com/#login|
+|set browser size to maximum                   |
+|wait    |1          |seconds                  |
+|enter   |@username  |as       |Email          |
+|wait    |1          |seconds                  |
+|enter   |@password  |as       |Password       |
+|wait    |1          |seconds                  |
+|click   |Login                                |
+|wait    |5          |seconds                  |
+
+|scenario        |loginto     |username  |INTEG  |password  |
+|open            |http://192.168.10.13/investorportal/#login|
+|set browser size|1280        |to by     |735               |
+|wait            |1           |seconds                      |
+|enter           |@username   |as        |Email             |
+|wait            |1           |seconds                      |
+|enter           |@password   |as        |Password          |
+|wait            |1           |seconds                      |
+|click           |Login                                     |
+|wait            |5           |seconds                      |
+
+
+!define pw_uname {nilesh@homeunion.com}
+!define pw_pwd {Home123#} 
+!define yardi_uname {dshrivas}
+!define yardi_pwd {Yardi999!!} 
+
+|table template          |checkinvestorstmtyardi|investor                                                                                        |
+|enter                   |@{investor}           |as                                       |Search by Email                                       |
+|click                   |SEARCH                                                                                                                 |
+|wait                    |3                     |seconds                                                                                         |
+|$user =                 |value of              |xpath=//div[1]/div[2]/div/div[2]/div/div/div/div[5]/div/table/tbody/tr/td[3]/a                  |
+|click                   |@{investor}                                                                                                            |
+|wait                    |1                     |seconds                                                                                         |
+|click                   |PERFORMANCE                                                                                                            |
+|seconds before timeout  |45                                                                                                                     |
+|wait for visible        |DISTRIBUTION                                                                                                           |
+|ensure                  |click if available    |Income Statement                                                                                |
+|wait                    |1                     |seconds                                                                                         |
+|$rentalincomeY =        |value of              |xpath=//div[1]/div[2]/div/div[2]/div/div[2]/div[2]/div[2]/div/div/div[2]/table/tbody/tr[2]/td[5]|
+|$otherincomeY =         |value of              |xpath=//div[1]/div[2]/div/div[2]/div/div[2]/div[2]/div[2]/div/div/div[2]/table/tbody/tr[3]/td[5]|
+|$totalincomeY=          |value of              |xpath=//table[@id='incomeStatementTable']/tbody/tr[4]/td[5]                                     |
+|$propertytaxY =         |value of              |xpath=//div[1]/div[2]/div/div[2]/div/div[2]/div[2]/div[2]/div/div/div[2]/table/tbody/tr[6]/td[5]|
+|$propertyinsuranceY=    |value of              |xpath=//table[@id='incomeStatementTable']/tbody/tr[7]/td[5]                                     |
+|$hoaY=                  |value of              |xpath=//table[@id='incomeStatementTable']/tbody/tr[8]/td[5]                                     |
+|$leasingfeeY=           |value of              |xpath=//table[@id='incomeStatementTable']/tbody/tr[9]/td[5]                                     |
+|$amfeeY=                |value of              |xpath=//table[@id='incomeStatementTable']/tbody/tr[10]/td[5]                                    |
+|$repairsY=              |value of              |xpath=//table[@id='incomeStatementTable']/tbody/tr[11]/td[5]                                    |
+|$provisionreservesY=    |value of              |xpath=//table[@id='incomeStatementTable']/tbody/tr[12]/td[5]                                    |
+|$utilitiesY=            |value of              |xpath=//table[@id='incomeStatementTable']/tbody/tr[13]/td[5]                                    |
+|$otherexpensesY=        |value of              |xpath=//table[@id='incomeStatementTable']/tbody/tr[14]/td[5]                                    |
+|$totalexpensesY=        |value of              |xpath=//table[@id='incomeStatementTable']/tbody/tr[15]/td[5]                                    |
+|$noiY=                  |value of              |xpath=//table[@id='incomeStatementTable']/tbody/tr[16]/td[5]                                    |
+|$loaninterestY=         |value of              |xpath=//table[@id='incomeStatementTable']/tbody/tr[18]/td[5]                                    |
+|$ptaxownerpaidY=        |value of              |xpath=//table[@id='incomeStatementTable']/tbody/tr[19]/td[5]                                    |
+|$pinsuranceownerpaidY=  |value of              |xpath=//table[@id='incomeStatementTable']/tbody/tr[20]/td[5]                                    |
+|$net_income_Y=          |value of              |xpath=//table[@id='incomeStatementTable']/tbody/tr[21]/td[5]                                    |
+|$yield_period_Y=        |value of              |xpath=//table[@id='incomeStatementTable']/tbody/tr[22]/td[5]                                    |
+|$yield_ann_Y=           |value of              |xpath=//table[@id='incomeStatementTable']/tbody/tr[23]/td[5]                                    |
+|$owner_paid_principal_Y=|value of              |xpath=//table[@id='incomeStatementTable']/tbody/tr[24]/td[5]                                    |
+|$cash_flow_Y=           |value of              |xpath=//table[@id='incomeStatementTable']/tbody/tr[25]/td[5]                                    |
+|$cash_on_cash_Y=        |value of              |xpath=//table[@id='incomeStatementTable']/tbody/tr[26]/td[5]                                    |
+|click                   |xpath=//div[1]/div[2]/div/div[1]/div[1]/div/div[2]/ul/li[2]/a                                                          |
+|wait                    |1                     |seconds                                                                                         |
+|click                   |CHANGE USER                                                                                                            |
+
+|table template           |checkinvestorstmtpw|investor                                                                                        |
+|enter                    |@{investor}        |as                                       |Search by Email                                       |
+|click                    |SEARCH                                                                                                              |
+|wait                     |1                  |seconds                                                                                         |
+|click                    |@{investor}                                                                                                         |
+|wait                     |1                  |seconds                                                                                         |
+|click                    |PERFORMANCE                                                                                                         |
+|seconds before timeout   |30                                                                                                                  |
+|wait for visible         |DISTRIBUTION                                                                                                        |
+|ensure                   |click if available |Income Statement                                                                                |
+|wait                     |1                  |seconds                                                                                         |
+|$rentalincomePW =        |value of           |xpath=//div[1]/div[2]/div/div[2]/div/div[2]/div[2]/div[2]/div/div/div[2]/table/tbody/tr[2]/td[5]|
+|$otherincomePW =         |value of           |xpath=//div[1]/div[2]/div/div[2]/div/div[2]/div[2]/div[2]/div/div/div[2]/table/tbody/tr[3]/td[5]|
+|$totalincomePW=          |value of           |xpath=//table[@id='incomeStatementTable']/tbody/tr[4]/td[5]                                     |
+|$propertytaxPW =         |value of           |xpath=//div[1]/div[2]/div/div[2]/div/div[2]/div[2]/div[2]/div/div/div[2]/table/tbody/tr[6]/td[5]|
+|$propertyinsurancePW=    |value of           |xpath=//table[@id='incomeStatementTable']/tbody/tr[7]/td[5]                                     |
+|$hoaPW=                  |value of           |xpath=//table[@id='incomeStatementTable']/tbody/tr[8]/td[5]                                     |
+|$leasingfeePW=           |value of           |xpath=//table[@id='incomeStatementTable']/tbody/tr[9]/td[5]                                     |
+|$amfeePW=                |value of           |xpath=//table[@id='incomeStatementTable']/tbody/tr[10]/td[5]                                    |
+|$repairsPW=              |value of           |xpath=//table[@id='incomeStatementTable']/tbody/tr[11]/td[5]                                    |
+|$provisionreservesPW=    |value of           |xpath=//table[@id='incomeStatementTable']/tbody/tr[12]/td[5]                                    |
+|$utilitiesPW=            |value of           |xpath=//table[@id='incomeStatementTable']/tbody/tr[13]/td[5]                                    |
+|$otherexpensesPW=        |value of           |xpath=//table[@id='incomeStatementTable']/tbody/tr[14]/td[5]                                    |
+|$totalexpensesPW=        |value of           |xpath=//table[@id='incomeStatementTable']/tbody/tr[15]/td[5]                                    |
+|$noiPW=                  |value of           |xpath=//table[@id='incomeStatementTable']/tbody/tr[16]/td[5]                                    |
+|$loaninterestPW=         |value of           |xpath=//table[@id='incomeStatementTable']/tbody/tr[18]/td[5]                                    |
+|$ptaxownerpaidPW=        |value of           |xpath=//table[@id='incomeStatementTable']/tbody/tr[19]/td[5]                                    |
+|$pinsuranceownerpaidPW=  |value of           |xpath=//table[@id='incomeStatementTable']/tbody/tr[20]/td[5]                                    |
+|$net_income_PW=          |value of           |xpath=//table[@id='incomeStatementTable']/tbody/tr[21]/td[5]                                    |
+|$yield_period_PW=        |value of           |xpath=//table[@id='incomeStatementTable']/tbody/tr[22]/td[5]                                    |
+|$yield_ann_PW=           |value of           |xpath=//table[@id='incomeStatementTable']/tbody/tr[23]/td[5]                                    |
+|$owner_paid_principal_PW=|value of           |xpath=//table[@id='incomeStatementTable']/tbody/tr[24]/td[5]                                    |
+|$cash_flow_PW=           |value of           |xpath=//table[@id='incomeStatementTable']/tbody/tr[25]/td[5]                                    |
+|$cash_on_cash_PW=        |value of           |xpath=//table[@id='incomeStatementTable']/tbody/tr[26]/td[5]                                    |
+|click                    |xpath=//div[1]/div[2]/div/div[1]/div[1]/div/div[2]/ul/li[2]/a                                                       |
+|wait                     |1                  |seconds                                                                                         |
+|click                    |CHANGE USER                                                                                                         |
+
+H
+|table template        |performcomparison|name|
+|switch to previous tab                       |
+|checkinvestorstmtyardi|@{name}               |
+|switch to next tab                           |
+|checkinvestorstmtpw   |@{name}               |
+
+
+
+|scenario        |loginto     |username   |stg   |password   |
+|seconds before timeout	| 20 |
+|open            |http://investorstaging.homeunion.com/#login|
+|set browser size|1280        |to by      |737               |
+|wait            |1           |seconds                       |
+|enter           |@username   |as         |Email             |
+|wait            |1           |seconds                       |
+|enter           |@password   |as         |Password          |
+|wait            |1           |seconds                       |
+|click           |Login                                      |
+|wait            |5           |seconds                       |
+
+
+|scenario        |gotowatchlist  |username  |stg  |password  |
+|open            |http://investorstaging.homeunion.com/#login|
+|set browser size|1280           |to by     |737             |
+|wait            |1              |seconds                    |
+|enter           |@username      |as        |Email           |
+|wait            |1              |seconds                    |
+|enter           |@password      |as        |Password        |
+|wait            |1              |seconds                    |
+|click           |Login                                      |
+|wait            |5              |seconds                    |
+|click           |WATCH LIST                                 |
+|wait            |5              |seconds                    |
+
+
+|scenario        |gotoperformance  |username  |stg |password |
+|open            |http://investorstaging.homeunion.com/#login|
+|set browser size|1280             |to by     |737           |
+|wait            |1                |seconds                  |
+|enter           |@username        |as        |Email         |
+|wait            |1                |seconds                  |
+|enter           |@password        |as        |Password      |
+|wait            |1                |seconds                  |
+|click           |Login                                      |
+|wait            |5                |seconds                  |
+|click           |PERFORMANCE                                |
+|wait            |5                |seconds                  |
+
+|scenario        |gototransactions  |username |stg |password |
+|open            |http://investorstaging.homeunion.com/#login|
+|set browser size|1280              |to by    |737           |
+|wait            |1                 |seconds                 |
+|enter           |@username         |as       |Email         |
+|wait            |1                 |seconds                 |
+|enter           |@password         |as       |Password      |
+|wait            |1                 |seconds                 |
+|click           |Login                                      |
+|wait            |5                 |seconds                 |
+|click           |TRANSACTIONS                               |
+|wait            |5                 |seconds                 |
+
+|scenario|logoutofipcustom                                           |
+|click   |xpath=//div[1]/div[2]/div/div[1]/div[1]/div/div[2]/ul/li[2]/a|
+|wait    |1                          |seconds                          |
+|click   |LOG OUT                                                      |
+|click|Cancel|
+|wait    |10                          |seconds                          |
+
+
+|scenario|logoutofip                                                   |
+|click   |xpath=//div[1]/div[2]/div/div[1]/div[1]/div/div[2]/ul/li[2]/a|
+|wait    |1                          |seconds                          |
+|click   |LOG OUT                                                      |
+|wait    |3                          |seconds                          |
+
+|scenario       |logout                                                       |
+|click          |xpath=//div[1]/div[2]/div/div[1]/div[1]/div/div[2]/ul/li[2]/a|
+|wait           |1                          |seconds                          |
+|click          |LOG OUT                                                      |
+|wait           |3                          |seconds                          |
+|open in new tab|about:blank                                                  |
+|switch to previous tab                                                       |
+|close tab                                                                    |
+
+TRANSACTIONS TAB SCENARIOS
+|scenario|setuptransactionpage                 |month                  |
+|click   |PERFORMANCE                                                  |
+|wait    |5                                    |seconds                |
+|click   |Transaction Activity                                         |
+|wait    |1                                    |seconds                |
+|click   |xpath=//div[@id='transHistoryCalendar']//span[.='START']     |
+|wait    |1                                    |seconds                |
+|click   |xpath=//div[1]/div[2]/div/div[1]/div[1]/div/div[2]/ul/li[2]/a|
+|wait    |1                                    |seconds                |
+|click   |CHANGE USER                                                  |
+
+|scenario|setuptransactionpagecustom              |month               |
+|click   |PERFORMANCE                                                  |
+|wait    |5                                       |seconds             |
+|click   |Transaction Activity                                         |
+|wait    |1                                       |seconds             |
+|click   |xpath=//div[@id='transHistoryCalendar']//span[.='START']     |
+|wait    |1                                       |seconds             |
+|click   |css=i.fa.fa-angle-left                                       |
+|wait    |1                                       |seconds             |
+|click   |xpath=//div[5]/div[1]/div[2]/table/tbody/tr[1]/td[5]/span    |
+|wait    |1                                       |seconds             |
+|click   |xpath=//div[5]/div[1]/div[2]/table/tbody/tr[5]/td[6]/span    |
+|wait    |1                                       |seconds             |
+|click   |css=button.applyBtn                                          |
+|wait    |2                                       |seconds             |
+|click   |xpath=//div[1]/div[2]/div/div[1]/div[1]/div/div[2]/ul/li[2]/a|
+|wait    |1                                       |seconds             |
+|click   |CHANGE USER                                                  |
+
+
+|table template            |performtransactioncomparison|name|
+|switch to previous tab                                      |
+|checktransactiontabstaging|@{name}                          |
+|switch to next tab                                          |
+|checkpwbalance                                              |
+|verify income statement                                     |
+
+
+
+|table template                |checktransactiontabprod|investor                                                                      |
+|enter                         |@{investor}            |as                                               |Search by Email             |
+|click                         |SEARCH                                                                                                |
+|wait                          |2                      |seconds                                                                       |
+|$user =                       |value of               |xpath=//div[1]/div[2]/div/div[2]/div/div/div/div[5]/div/table/tbody/tr/td[3]/a|
+|$firstname=                   |value of               |xpath=//*[@id="user_results"]/tbody/tr/td[1]/a                                |
+|$lastname=                    |value of               |xpath=//*[@id="user_results"]/tbody/tr/td[2]/a                                |
+|click                         |@{investor}                                                                                           |
+|wait                          |1                      |seconds                                                                       |
+|$investorname=                |value of               |css=#navbar02 > ul > li.dropdown > a             |                            |
+|click                         |PERFORMANCE                                                                                           |
+|seconds before timeout        |45                                                                                                    |
+|wait for visible              |DISTRIBUTION                                                                                          |
+|ensure                        |click if available     |Transaction Activity                                                          |
+|wait                          |1                      |seconds                                                                       |
+|$Operating_cash_balance_prod =|value of               |css=span.balanceValue.currency_field                                          |
+|click                         |xpath=//div[1]/div[2]/div/div[1]/div[1]/div/div[2]/ul/li[2]/a                                         |
+|wait                          |1                      |seconds                                                                       |
+|click                         |CHANGE USER                                                                                           |
+
+
+|table template                |checktransactiontabstaging|investor                                                                      |
+|enter                         |@{investor}               |as                                               |Search by Email             |
+|click                         |SEARCH                                                                                                   |
+|wait                          |2                         |seconds                                                                       |
+|$user =                       |value of                  |xpath=//div[1]/div[2]/div/div[2]/div/div/div/div[5]/div/table/tbody/tr/td[3]/a|
+|$firstname=                   |value of                  |xpath=//*[@id="user_results"]/tbody/tr/td[1]/a                                |
+|$lastname=                    |value of                  |xpath=//*[@id="user_results"]/tbody/tr/td[2]/a                                |
+|click                         |@{investor}                                                                                              |
+|wait                          |1                         |seconds                                                                       |
+|$investorname=                |value of                  |css=#navbar02 > ul > li.dropdown > a             |                            |
+|click                         |PERFORMANCE                                                                                              |
+|seconds before timeout        |45                                                                                                       |
+|wait for visible              |DISTRIBUTION                                                                                             |
+|ensure                        |click if available        |Transaction Activity                                                          |
+|wait                          |1                         |seconds                                                                       |
+|$Operating_cash_balance_prod =|value of                  |css=span.balanceValue.currency_field                                          |
+|click                         |xpath=//div[1]/div[2]/div/div[1]/div[1]/div/div[2]/ul/li[2]/a                                            |
+|wait                          |1                         |seconds                                                                       |
+|click                         |CHANGE USER                                                                                              |
+
+
+
+Propertyware
+
+#|press           |tab                                                                    |
+#|type            |${pw_pwd}                                                              |
+
+!|scenario       |logintopw                                                                   |
+|open            |https://app.propertyware.com/pw/login.jsp                                   |
+|set browser size|1280       |to by|735                                                       |
+|wait            |1          |seconds                                                         |
+|enter           |${pw_uname}|as   |id=loginEmail                                             |
+|wait            |1          |seconds                                                         |
+|enter           |${pw_pwd}  |as   |xpath=.//*[@id='main-content']/aside/div/form/div[2]/input|
+|wait            |1          |seconds                                                         |
+|click           |Sign Me In                                                                  |
+|wait            |3          |seconds                                                         |
+
+!|scenario|openbalancesheetreport                                                 |
+|click    |Reports                                                                |
+|wait     |2                    |seconds                                          |
+|open     |https://app.propertyware.com/pw/reporting/reports.do?entityID=589496995|
+|wait     |2                    |seconds                                          |
+|click    |Filters                                                                |
+|wait     |2                    |seconds                                          |
+|enter    |09/01/2016           |as           |id=entity.dateRangeStart           |
+|wait     |1                    |seconds                                          |
+|enter    |09/30/2016           |as           |id=entity.dateRangeEnd             |
+|wait     |1                    |seconds                                          |
+|click    |Apply                                                                  |
+|wait     |2                    |seconds                                          |
+
+!|scenario|openbillpaymentreport                                                  |
+|click    |Reports                                                                |
+|wait     |2                               |seconds                               |
+|open     |https://app.propertyware.com/pw/reporting/reports.do?entityID=896303112|
+|wait     |2                               |seconds                               |
+
+
+
+|scenario|logoutofpw|
+|click   |Logout    |
+
+
+|scenario                              |checkpwbalance                                                            |
+|click                                 |Filters                                                                   |
+|wait                                  |1            |seconds                                                     |
+|click                                 |None                                                                      |
+|wait                                  |1            |seconds                                                     |
+|enter                                 |$investorname|as                   |id=searchPortfolios                   |
+|wait                                  |1            |seconds                                                     |
+|press                                 |Enter                                                                     |
+|click                                 |Apply                                                                     |
+|wait                                  |3            |seconds                                                     |
+|$Operating_cash_balance_Propertyware =|value of     |xpath=//tr[td[contains(., 'Total Operating')]][last()]/td[2]|
+#|click                                 |$investorname                                                         |
+
+Yardi
+
+!|scenario      |logintoyardi           |period                              |
+|open in new tab|https://www.yardiasp.com/96756home/pages/LoginAdvanced.aspx |
+|wait           |1                      |seconds                             |
+|enter          |${yardi_uname}         |as        |id=Username              |
+|wait           |1                      |seconds                             |
+|press          |tab                                                         |
+|type           |${yardi_pwd}                                                |
+|wait           |1                      |seconds                             |
+|click          |LOGIN                                                       |
+|wait           |3                      |seconds                             |
+|open           |https://www.yardiasp.com/96756home/pages/GlrepFinancial.aspx|
+|wait           |1                      |seconds                             |
+|enter          |@period                |as        |id=ToMMYY_TextBox        |
+|wait           |1                      |seconds                             |
+
+#|click           |Favorites                                                  |
+#|wait            |1                    |seconds                              |
+#|click           |Financial                                                  |
+#|wait            |2                    |seconds                              |
+
+|scenario|logoutofyardi|
+|click   |Sign Out     |
+|switch to previous tab|
+
+|scenario                                 |checkyardibalance                                                                                     |
+|click                                    |Property                                                                                                 |
+|$investor =                              |concatenateinvestornameyardi|$lastname|                          |$firstname                          |
+|enter                                    |$investor                   |as       |xpath=//form/table/tbody/tr[1]/td/div/div/div/div/table/tbody/tr[4]/td[2]/input[1]|
+|wait                                     |2                           |seconds                                                                  |
+|click|Find|
+|wait                                     |1                           |seconds                                                                  |
+|click|id=check_all|
+|wait                                     |1                           |seconds                                                                  |
+|click|OK|
+|wait                                     |1                           |seconds                                                                  |
+|click                                    |Display                                                                                               |
+|wait                                     |2                           |seconds                                                                  |
+|$cash_balance_Yardi =                    |value of                    |xpath=//form/div[11]/div/table/tbody/tr[2]/td[2]/a                       |
+|$Total_RealEstate_account_balance_Yardi =|value of                    |xpath=//tr[td[contains(., 'Total Real Estate ')]][last()]/td[2]          |
+
+#|click                                    |xpath=//form/table/tbody/tr[1]/td/div/div[2]/div[2]/table/tbody/tr/td[1]/input                        |
+#|click                                    |OK                                                                                                    |
+
+
+
+|table template         |performyardicomparison|name|
+|switch to previous tab                             |
+|checktransactiontabprod|@{name}                    |
+|switch to next tab                                 |
+|checkyardibalance                                  |
+|verify income statement                            |
+#|verify income statement                               |
+
+|scenario|selectlocationonpropertysearchpage|location                                              |
+|click   |xpath=//div[@class='panel-collapse']/div/dl/dt/a/p                                       |
+|select  |@location                         |for|xpath=//div[@class='panel-collapse']/div/dl/dt/a/p|
+|wait    |2                                 |seconds                                               |
+
+|scenario|selectinvestmentonpropertysearchpage|investment                        |
+|click   |xpath=//input[@id="invAmount"]                                         |
+|enter   |@investment                         |for|xpath=//input[@id="invAmount"]|
+|wait    |2                                   |seconds                           |
+
+|scenario|selectfinancingonpropertysearchpage|financing                                              |
+|click   |xpath=//a[@class="financingSelectedOption pointer"]                                        |
+|select  |@financing                         |for|xpath=//a[@class="financingSelectedOption pointer"]|
+|wait    |2                                  |seconds                                                |
+
+|scenario|selectstrategyonpropertysearchpage|strategy                                                  |
+|click   |xpath=//a[@class="investmentStrategySelected pointer"]                                       |
+|select  |@strategy                         |for|xpath=//a[@class="investmentStrategySelected pointer"]|
+|wait    |2                                 |seconds                                                   |
+
+
+
+
+|scenario|selectlocationonportfoliobuilderpage|location                                              |
+|click   |xpath=//div[@class='panel-collapse']/div/dl/dt/a/p                                         |
+|select  |@location                           |for|xpath=//div[@class='panel-collapse']/div/dl/dt/a/p|
+|wait    |2                                   |seconds                                               |
+
+|scenario|selectinvestmentonportfoliobuilderpage|investment                        |
+|click   |xpath=//input[@id="invAmount"]                                           |
+|enter   |@investment                           |for|xpath=//input[@id="invAmount"]|
+|wait    |2                                     |seconds                           |
+
+|scenario|selectfinancingonportfoliobuilderpage|financing                                              |
+|click   |xpath=//a[@class="financingSelectedOption pointer"]                                          |
+|select  |@financing                           |for|xpath=//a[@class="financingSelectedOption pointer"]|
+|wait    |2                                    |seconds                                                |
+
+|scenario|selectstrategyonportfoliobuilderpage|strategy                                                  |
+|click   |xpath=//a[@class="investmentStrategySelected pointer"]                                         |
+|select  |@strategy                           |for|xpath=//a[@class="investmentStrategySelected pointer"]|
+|wait    |2                                   |seconds                                                   |
+
+
+
+
+|scenario                    |checkValuesInSummaryOfPortfolioBuilder                                                       |
+|$PortfolioValueInSummary =  |value of|xpath=//div[@id="portfolio-results"]/portfolio-info-app/div/div/div[2]/section[2]/h1|
+|$InvestmentAmountInSummary =|value of|xpath=//div[@id="portfolio-results"]/portfolio-info-app/div/div/div[2]/section[3]/h1|
+|$RentInSummary =            |value of|xpath=//div[@id="portfolio-results"]/portfolio-info-app/div/div/div[2]/section[4]/h1|
+|$COCReturnInSummary =       |value of|xpath=//div[@id="portfolio-results"]/portfolio-info-app/div/div/div[2]/section[5]/h1|
+|$YieldInSummary =           |value of|xpath=//div[@id="portfolio-results"]/portfolio-info-app/div/div/div[2]/section[6]/h1|
+|$TotalReturnInSummary =     |value of|xpath=//div[@id="portfolio-results"]/portfolio-info-app/div/div/div[2]/section[7]/h1|
+
+
+
+|scenario                  |checkValuesInTotalSectionOfPortfolioBuilder                    |
+|$PortfolioValueInTotal =  |value of|xpath=//tfoot[@class="hideInTab"]/tr/td[2]/strong/span|
+|$InvestmentAmountInTotal =|value of|xpath=//tfoot[@class="hideInTab"]/tr/td[3]/strong/span|
+|$RentInTotal =            |value of|xpath=//tfoot[@class="hideInTab"]/tr/td[4]/strong     |
+|$COCReturnInTotal =       |value of|xpath=//tfoot[@class="hideInTab"]/tr/td[5]/strong     |
+|$YieldInTotal =           |value of|xpath=//tfoot[@class="hideInTab"]/tr/td[6]/strong     |
+|$TotalReturnInTotal =     |value of|xpath=//tfoot[@class="hideInTab"]/tr/td[7]/strong     |
+
+
+|scenario                      |checkValuesInProjectionsHeaderOfPortfolioBuilder                       |
+|$PortfolioValueInProjections =|value of|xpath=//div[@id="projection-wrapper"]/div/div[2]/div/div/h1   |
+|$RentInProjections =          |value of|xpath=//div[@id="projection-wrapper"]/div/div[2]/div/div[2]/h1|
+
+
+|scenario                   |checkValuesInBasicMonthlyIncomeStatementOfPortfolioBuilder   |
+|$RentInBasic =             |value of|xpath=//table[@class="table"]/tbody/tr[1]/td[3]/span|
+|$LoanPaymentInBasic =      |value of|xpath=//table[@class="table"]/tbody/tr[2]/td[3]/span|
+|$PropertyTaxInBasic =      |value of|xpath=//table[@class="table"]/tbody/tr[3]/td[3]/span|
+|$PropertyInsuranceInBasic =|value of|xpath=//table[@class="table"]/tbody/tr[4]/td[3]/span|
+|$HOAInBasic =              |value of|xpath=//table[@class="table"]/tbody/tr[5]/td[3]/span|
+|$AssetMgmtFeesInBasic =    |value of|xpath=//table[@class="table"]/tbody/tr[6]/td[3]/span|
+
+|scenario                        |checkValuesInStabilizationPeriodOfPortfolioBuilder            |
+|$RentInStabPeriod =             |value of|xpath=//table[@id="tabStabPeriod"]/tbody/tr[2]/td[5] |
+|$LoanPaymentInStabPeriod =      |value of|xpath=//table[@id="tabStabPeriod"]/tbody/tr[5]/td[5] |
+|$PropertyTaxInStabPeriod =      |value of|xpath=//table[@id="tabStabPeriod"]/tbody/tr[8]/td[5] |
+|$PropertyInsuranceInStabPeriod =|value of|xpath=//table[@id="tabStabPeriod"]/tbody/tr[9]/td[5] |
+|$HOAInStabPeriod =              |value of|xpath=//table[@id="tabStabPeriod"]/tbody/tr[10]/td[5]|
+|$AssetMgmtFeesInStabPeriod =    |value of|xpath=//table[@id="tabStabPeriod"]/tbody/tr[12]/td[5]|
+
+|scenario|checkValuesInInteractiveChartOnPortfolioBuilder|
+|$AccumulatedWealth = |value of|xpath=//div[@id="projection-wrapper"]/div[1]/div[3]/interactive-charts/div/div/div/ul/li/a/p|
+|$CashFlow =|value of|xpath=//div[@id="projection-wrapper"]/div[1]/div[3]/interactive-charts/div/div/div/ul/li[2]/a/p|
+|$Equity =|value of|xpath=//div[@id="projection-wrapper"]/div[1]/div[3]/interactive-charts/div/div/div/ul/li[3]/a/p|
+
+
+|scenario|selectdownpaymentpercentageonportfoliobuilderpage|downpaymentpercenatage                   |
+|click   |xpath=//button[@class="btn btn-default dropdown-toggle"]                                         |
+|scroll to|VIEW BACKUP|
+|select  |@downpaymentpercenatage             |for|xpath=//button[@class="btn btn-default dropdown-toggle"]|
+|wait    |2                                   |seconds                                               |

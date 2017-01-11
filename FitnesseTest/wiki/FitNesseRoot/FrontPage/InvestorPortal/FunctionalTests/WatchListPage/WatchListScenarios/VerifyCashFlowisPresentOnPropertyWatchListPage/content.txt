@@ -1,0 +1,31 @@
+Goal of the Test Case:
+-This test is to verify that Cash Flow text is present in Property's watch List page.
+
+Steps:
+1.Login to Staging.
+2.Go to Property Search page.
+3.Click on "Add To" button.
+4.Click on Property watch List option.
+5.Verify that Cash Flow text is present in Property Watch List page.
+
+| Import |
+| fitnesse |
+| fitnesse.fixtures |
+
+!| script | browser test |
+| loginto | kothawaderupali26@gmail.com | stg | Homeunion2016 |
+| click | PROPERTY SEARCH|
+| wait | 10 | seconds |
+| note| Click on Add to button for any property|
+| scroll to|ADD TO|
+| click|ADD TO|
+| note| Select Property watch List option|
+| click|Property Watch List|
+| wait|10|seconds|
+| note| Click on Property watch List link from green success message|
+| click|Property Watch List|
+| wait|10|seconds|
+| click|xpath=//td[@class="hideInMobile hideInTab"]/label/span|
+| note|Verify Cash Flow Text is present|
+| check|value of|xpath=//table[@class="table selected-portfolio-table"]/tbody/tr/td[5]/p|Cash Flow|
+| show|take screenshot|pic|

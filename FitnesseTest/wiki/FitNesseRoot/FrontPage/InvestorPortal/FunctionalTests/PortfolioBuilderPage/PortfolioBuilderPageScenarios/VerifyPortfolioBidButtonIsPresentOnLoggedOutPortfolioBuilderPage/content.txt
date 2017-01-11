@@ -1,0 +1,11 @@
+This test case is to verify that Portfolio Bid button is present on logged out version of Portfolio BUilder page
+
+| Import |
+| fitnesse |
+| fitnesse.fixtures |
+
+| Script | browser test |
+| open  | http://investorstaging.homeunion.com/#portfolio|
+| wait  |2 |seconds|
+| is visible| PLACE PORTFOLIO BID|
+| wait  |2 |seconds|

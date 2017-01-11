@@ -1,0 +1,17 @@
+This test case is to verify Property List page opens in a first click.
+
+
+| Import |
+| fitnesse |
+| fitnesse.fixtures |
+
+| Script | browser test |
+| gotowatchlist | demo@homeunion.com | stg | 123456 |
+| click | Portfolio List|
+| wait  |2 |seconds|
+| click |View Portfolio |
+| wait  |10 |seconds|
+| click |Property List|
+| wait  |2 |seconds|
+| is visible|John's Property List |
+| wait  |2 |seconds|

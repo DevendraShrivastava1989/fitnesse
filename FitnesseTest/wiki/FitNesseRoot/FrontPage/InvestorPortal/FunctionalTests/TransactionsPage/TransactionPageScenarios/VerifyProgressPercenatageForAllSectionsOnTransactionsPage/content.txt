@@ -1,0 +1,23 @@
+Steps:
+1.Login to https://investor.homeunion.com with demo account.
+2.Click on Transactions tab.
+3.Verify Progress Percenatage And ..FrontPage.InvestorPortal.FunctionalTests.TransactionsPage.TransactionPageScenarios.ProgressText For All Sections On Transactions Page
+
+|Import|
+|fitnesse|
+|fitnesse.fixtures|
+
+|script|browser test|
+|loginto|demo@homeunion.com|Prod|123456|
+|wait|3|seconds|
+|click|TRANSACTIONS|
+|wait|3|seconds|
+|click|xpath=//div[@class="col-md-6 row"]/div/ul/li/a|
+|select|304 Northlane Drive, Whiteland, IN 46184|for|xpath=//div[@class="col-md-6 row"]/div/ul/li/a|
+|check|value of|css=#transaction-steps-div  > div:nth-of-type(1) div.pie span.text|100%|
+|check|value of|css=#transaction-steps-div  > div:nth-of-type(2) div.pie span.text|67%|
+|check|value of|css=#transaction-steps-div  > div:nth-of-type(3) div.pie span.text|100%|
+|check|value of|css=#transaction-steps-div  > div:nth-of-type(4) div.pie span.text|100%|
+|check|value of|css=#transaction-steps-div  > div:nth-of-type(5) div.pie span.text|0%|
+|check|value of|css=#transaction-steps-div  > div:nth-of-type(6) div.pie span.text|75%|
+|logoutofip|

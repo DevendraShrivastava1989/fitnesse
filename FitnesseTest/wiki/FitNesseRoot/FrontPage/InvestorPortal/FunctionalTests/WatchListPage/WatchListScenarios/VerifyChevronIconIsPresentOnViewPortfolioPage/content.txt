@@ -1,0 +1,15 @@
+This test case is to verify Chevron icon is present on View Portfolio page.
+
+
+| Import |
+| fitnesse |
+| fitnesse.fixtures |
+
+| Script | browser test |
+| gotowatchlist | demo@homeunion.com | stg | 123456 |
+| click | Portfolio List|
+| wait  |2 |seconds|
+| click |View Portfolio |
+| wait  |10 |seconds|
+| is visible| xpath=//span[@class="glyphicon glyphicon-menu-left pull-left"]|
+| wait  |2 |seconds|

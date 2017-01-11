@@ -1,0 +1,52 @@
+Goal of the Test Case:
+-This test is to verify that all values in Basic Monthly Income Statement Component are same as in Stabilization Period tab in Detailed Calculations.
+
+Steps:
+1.Login to Production.
+2.Go to Portfolio Builder page.
+3.Verify that all values in Basic Monthly Income Statement Component are same as in Stabilization Period tab in Detailed Calculations.
+
+| Import |
+| fitnesse |
+| fitnesse.fixtures |
+
+!|Library             |
+|StringFixture        |
+
+
+!| script | browser test |
+| loginto | demo@homeunion.com | ${Environment} | 123456 |
+| wait| 10|seconds|
+| click| PORTFOLIO BUILDER |
+| wait| 10|seconds|
+| note| scroll page to Portfolio Financials section so that Detailed calulation but will be visible|
+| scroll to|Portfolio Financials|
+| wait|5|seconds|
+| note| click on Detailed Calculations button|
+| click|xpath=//div[@class="financial container"]/div[3]/button|
+| wait|3|seconds|
+| note|click on Stabilization Period tab|
+| click|STABILIZATION PERIOD|
+| wait|3|seconds|
+| checkValuesInBasicMonthlyIncomeStatementOfPortfolioBuilder|
+| checkValuesInStabilizationPeriodOfPortfolioBuilder|
+| note| verify that Rent in Basic Monthly Income Statement compaonent is same as in stabilization Period tab|
+| check|echo|$RentInBasic|$RentInStabPeriod|
+| note| verify that Loan Payment in Basic Monthly Income Statement compaonent is same as in stabilization Period tab|
+| $temp_LoanPaymentInBasic= |replace all |[-]|in|$LoanPaymentInBasic|with||
+| check|echo|$temp_LoanPaymentInBasic|$LoanPaymentInStabPeriod|
+| note| verify that Property Tax in Basic Monthly Income Statement compaonent is same as in stabilization Period tab|
+| $temp_PropertyTaxInBasic= |replace all |[-]|in|$PropertyTaxInBasic|with||
+| check|echo| $temp_PropertyTaxInBasic|$PropertyTaxInStabPeriod|
+| note| verify that Property Insurance in Basic Monthly Income Statement compaonent is same as in stabilization Period tab|
+| $temp_PropertyInsuranceInBasic= |replace all |[-]|in|$PropertyInsuranceInBasic|with||
+| check|echo| $temp_PropertyInsuranceInBasic|$PropertyInsuranceInStabPeriod|
+| note| verify that HOA in Basic Monthly Income Statement compaonent is same as in stabilization Period tab|
+| $temp_HOAInBasic= |replace all |[-]|in|$HOAInBasic|with||
+| check|echo| $temp_HOAInBasic|$HOAInStabPeriod|
+| note| verify that Asset Managment Fees in Basic Monthly Income Statement compaonent is same as in stabilization Period tab|
+| $temp_AssetMgmtFeesInBasic= |replace all |[-]|in|$AssetMgmtFeesInBasic|with||
+| check|echo| $temp_AssetMgmtFeesInBasic|$AssetMgmtFeesInStabPeriod|
+| logoutofipcustom|
+
+

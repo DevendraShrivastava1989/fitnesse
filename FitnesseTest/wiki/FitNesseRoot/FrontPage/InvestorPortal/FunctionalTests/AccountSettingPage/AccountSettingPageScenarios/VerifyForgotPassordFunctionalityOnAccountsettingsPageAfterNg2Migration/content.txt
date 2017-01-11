@@ -1,0 +1,58 @@
+!path C:\Users\Administrator\OneDrive\target\test-classes\
+!path C:\Users\Administrator\OneDrive\target\classes\
+
+
+|Import           |
+|fitnesse_HU      |
+|fitnesse.fixtures|
+
+|Library       |
+|investorportal|
+
+!| script          |investorportal  |
+| loginto           |homeuniontest@gmail.com  |stg    |Homeunion2016  |
+| wait|15|seconds|
+| click| xpath=//a[@class="dropdown-toggle pointer"]/span|
+| click| ACCOUNT SETTINGS|
+| wait|15|seconds|
+| click|Change Password|
+| click|Forgot your password?|
+| wait|15|seconds|
+| is visible|Password change request successful. Please check your Email for further instructions.|
+| click|OK|
+| wait|15|seconds|
+| open|https://mail.google.com/mail/#inbox|
+| wait|3|seconds|
+| note|enter gmail account credentials to Login to gmail|
+| enter|homeuniontest@gmail.com|as|Enter your email|
+| click|Next|
+| wait|1|seconds|
+| enter|Homeunion2016|as|Password|
+| click|Sign in|
+| note|click on "Homeunion-Password Reset Instructions" email|
+| click|support|
+|note|click on button to create a new password|
+|click|CREATE A NEW PASSWORD|
+|wait|20|seconds|
+|switch to next tab|
+|note| enter new password for investor portal's account|
+|click|New Password|
+|enter|Homeunion2016|as|New Password|
+|click|Confirm Password|
+|enter|Homeunion2016|as|Confirm Password|
+|show|take screenshot|pic3|
+|note|click on "Save" button in "Choose a new Password" window|
+|click|xpath=//button[@id="change-pw-btn"]|
+|wait|5|seconds|
+|click|OK|
+|wait|5|seconds|
+|show|take screenshot|pic|
+|note|Enter investor portal's account creadentials with new password|
+|enter|homeuniontest@gmail.com|as|Email|
+|enter|Homeunion2016|as|Password|
+|show|take screenshot|pic1|
+|note|click on Login button|
+|click|xpath=//button[@id="page-login-btn"]|
+|wait|10|seconds|
+|is visible|PROPERTY SEARCH|
+|logoutofip|

@@ -1,0 +1,23 @@
+Steps:
+1.Login to https://investor.homeunion.com with demo account.
+2.Click on Transactions tab.
+3.Verify titles of all sections of Transactions page
+
+
+|Import           |
+|fitnesse         |
+|fitnesse.fixtures|
+
+|script |browser test                                                                                                   |
+|loginto|demo@homeunion.com|Prod                                                            |123456                     |
+|wait   |3                 |seconds                                                                                     |
+|click  |TRANSACTIONS                                                                                                   |
+|wait   |3                 |seconds                                                                                     |
+|check  |value of          |xpath=/html/body/div[1]/div[2]/div/div[2]/div/div[2]/div/div/h1 |Total Transaction Progress |
+|check  |value of          |css=#transaction-steps-div  > div:nth-of-type(1) span.info-label|TRANSACTION SETUP          |
+|check  |value of          |css=#transaction-steps-div  > div:nth-of-type(2) span.info-label|AGREEMENT & EARNEST DEPOSIT|
+|check  |value of          |css=#transaction-steps-div  > div:nth-of-type(3) span.info-label|LOAN PROCESSING            |
+|check  |value of          |css=#transaction-steps-div  > div:nth-of-type(4) span.info-label|RENOVATION INSPECTION      |
+|check  |value of          |css=#transaction-steps-div  > div:nth-of-type(5) span.info-label|TENANT MARKETING           |
+|check  |value of          |css=#transaction-steps-div  > div:nth-of-type(6) span.info-label|HUD & CLOSING              |
+|logoutofip                                                                                                             |

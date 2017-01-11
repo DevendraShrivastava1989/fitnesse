@@ -1,0 +1,85 @@
+<test page>
+!path /Users/Karthik/Documents/git/TestingScripts/HomeUnion/target/test-classes/
+!path /Users/Karthik/Documents/git/TestingScripts/HomeUnion/target/classes/
+
+|Import           |
+|fitnesse         |
+|fitnesse.fixtures|
+
+
+!|Library             |
+|stringtointcomparison|
+|StringFixture        |
+
+|scenario                                 |verify income statement                                                                                 |
+|$temp=                                   |replace all      |[$,]                                    |in|$Operating_cash_balance_Propertyware|with||
+|$Operating_cash_balance_Propertyware_int=|convert to double|$temp                                                                                 |
+|$temp=                                   |replace all      |[$,]                                    |in|$Operating_cash_balance_prod        |with||
+|$Operating_cash_balance_prod_int=        |convert to double|$temp                                                                                 |
+|check                                    |echo             |$Operating_cash_balance_Propertyware_int|~=$Operating_cash_balance_prod_int           |
+
+!|storyboard                 |funda test                              |
+|loginto                     |rohantest@homeuniontest.com|stg|Rohan123|
+|setuptransactionpage        |Sep                                     |
+|logintopw                                                            |
+|performtransactioncomparison|wisconsin1989@yahoo.com                 |
+|performtransactioncomparison|sarah.sang@gmail.com                    |
+|performtransactioncomparison|rocha_edgar@outlook.com                 |
+|performtransactioncomparison|edcern@gmail.com                        |
+|performtransactioncomparison|n75claire@hotmail.com                   |
+|performtransactioncomparison|etnfret2000@yahoo.com                   |
+|performtransactioncomparison|fnbancroft@gmail.com                    |
+|performtransactioncomparison|zenaida@theZroom.com                    |
+|performtransactioncomparison|questx411@gmail.com                     |
+|performtransactioncomparison|lingary1107@gmail.com                   |
+|performtransactioncomparison|garyying66@gmail.com                    |
+|performtransactioncomparison|gkukal@gmail.com                        |
+|performtransactioncomparison|ggzzhang@yahoo.com                      |
+|performtransactioncomparison|georginaamd@gmail.com                   |
+|performtransactioncomparison|gracemaria.gutierrez@gmail.com          |
+|performtransactioncomparison|gusbonse@gmail.com                      |
+|performtransactioncomparison|eauclaire2010@yahoo.com                 |
+|performtransactioncomparison|logicators@yahoo.com                    |
+|performtransactioncomparison|dexom1st@gmail.com                      |
+|performtransactioncomparison|indumathishankar@gmail.com              |
+|performtransactioncomparison|jacdew@frontier.com                     |
+|performtransactioncomparison|jconnors8@gmail.com                     |
+|performtransactioncomparison|cefdsse@yahoo.com                       |
+|performtransactioncomparison|jlouied@gmail.com                       |
+|performtransactioncomparison|J.SINGH@COMCAST.NET                     |
+|performtransactioncomparison|jcohenj@comcast.net                     |
+|performtransactioncomparison|ubellj@icloud.com                       |
+|performtransactioncomparison|kumarljv@hotmail.com                    |
+|performtransactioncomparison|jeffh1981@gmail.com                     |
+|performtransactioncomparison|kaistudio@gmail.com                     |
+|performtransactioncomparison|jeffdenbleyker@comcast.net              |
+|performtransactioncomparison|jsouyang@yahoo.com                      |
+|performtransactioncomparison|jyencho@gmail.com                       |
+|performtransactioncomparison|jshaw44@kc.rr.com                       |
+|performtransactioncomparison|jimitaparekh@gmail.com                  |
+|performtransactioncomparison|Jimmy.Martin@cvn76.navy.mil             |
+|performtransactioncomparison|nageljohn1@yahoo.com                    |
+|performtransactioncomparison|jon.kula@gmail.com                      |
+|performtransactioncomparison|jonathanjonathan112@yahoo.com           |
+|performtransactioncomparison|jordan24greenberg@gmail.com             |
+|performtransactioncomparison|cuadrosjm@yahoo.com                     |
+|performtransactioncomparison|josephoracle@yahoo.com                  |
+|performtransactioncomparison|joseph_skinner2004@yahoo.com            |
+|performtransactioncomparison|Baumender84@yahoo.com                   |
+|performtransactioncomparison|robinsoncarusoe@gmail.com               |
+|performtransactioncomparison|kburrows@deckerelectric.com             |
+|performtransactioncomparison|cppwriter@yahoo.com                     |
+|performtransactioncomparison|kweiner111@verizon.net                  |
+|performtransactioncomparison|kbaker@sevenriversgroup.com             |
+|performtransactioncomparison|kris@homeunion.com                      |
+|performtransactioncomparison|larawitter@yahoo.com                    |
+|performtransactioncomparison|kimrealestateacct@gmail.com             |
+|logoutofpw                                                           |
+|logout                                                               |
+
+
+
+
+
+
+

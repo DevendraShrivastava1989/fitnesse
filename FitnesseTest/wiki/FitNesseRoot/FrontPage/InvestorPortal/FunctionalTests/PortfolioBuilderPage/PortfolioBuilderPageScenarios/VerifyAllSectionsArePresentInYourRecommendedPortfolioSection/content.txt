@@ -1,0 +1,31 @@
+Goal of the Test Case:
+-This test is to verify that all sections are present in Your Recommended Portfolio summary section of Portfolio Builder page.
+
+Steps:
+1.Login to production.
+2.Go to Portfolio Builder page.
+3.Verify that all sections are present in Your Recommended Portfolio summary section of Portfolio Builder page.
+| Import |
+| fitnesse |
+| fitnesse.fixtures |
+
+!| script | browser test |
+| loginto | demo@homeunion.com | ${Environment} | 123456 |
+| click | PORTFOLIO BUILDER | |
+| wait | 10 | seconds |
+| note|Verify Total Properties Text is present|
+| is visible|Total Properties|
+| note|Verify Portfolio Value Text is present|
+| is visible|Portfolio Value|
+| note|Verify Investment Amount Text is present|
+| is visible|Investment Amount|
+| note|Verify Rent Text is present|
+| is visible|xpath=//div[@class="port-summary portfolio-summary-common"]/section[4]/h6|
+| note|Verify Cash-on-Cash Return Text is present|
+| is visible|Cash-on-Cash Return|
+| note|Verify Yield Text is present|
+| is visible|Yield|
+| note|Verify Total Return Text is present|
+| is visible|Total Return|
+| logoutofipcustom|
+

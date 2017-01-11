@@ -1,0 +1,19 @@
+Steps:
+1.Login to https://investor.homeunion.com with demo account.
+2.Click on Transactions tab.
+3.Verify Transactions Page has correct Page Title
+
+
+|Import|
+|fitnesse|
+|fitnesse.fixtures|
+
+|script|browser test|
+|loginto|demo@homeunion.com|Prod|123456|
+|wait|3|seconds|
+|click|TRANSACTIONS|
+|wait|3|seconds|
+|check|value of|css=h1.page-title|Transactions|
+|logoutofip|
+
+

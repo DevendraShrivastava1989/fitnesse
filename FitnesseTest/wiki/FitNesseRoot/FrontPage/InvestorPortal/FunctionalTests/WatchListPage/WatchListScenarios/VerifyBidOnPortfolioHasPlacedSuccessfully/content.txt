@@ -1,0 +1,34 @@
+Goal of the Test case:
+This test case is to verify that Portfolio bid functionality works fine after clicking pn "Place Portfolio Bid" button on "Portfolio Builder" page.
+
+Steps:
+1. Login to staging.
+2. Go to Portfolio List of watch List
+3.'''Remove all the portfolios from "Portfolio List" of Watch List.'''
+4. Go to Portfolio Builder page.
+5. Click on "Place Portfolio Bid"button.
+6. Verify on "Portfolio List" page, same portfolio has added with "Bid Requested" status.
+
+!path C:\Users\Administrator\OneDrive\target\test-classes\
+!path C:\Users\Administrator\OneDrive\target\classes\
+| Import |
+| fitnesse |
+| fitnesse.fixtures |
+
+| Library |
+| investorportal |
+
+| script | investorportal |
+| loginto | rohantest@homeuniontest.com | stg | Rohan123 |
+| click | WATCH LIST |
+| note | Remove all the portfolios in Portfolio List |
+| click | Portfolio List |
+| wait | 15 | seconds |
+| $result= | removeallportfolios |
+| check | echo | $result | PASS |
+| note | click | PORTFOLIO BUILDER |
+| note | wait | 5 | seconds |
+| note | click | PLACE PORTFOLIO BID |
+| note | click | SAVE |
+| note | wait | 5 | seconds |
+| note | is visible | Bid Requested |

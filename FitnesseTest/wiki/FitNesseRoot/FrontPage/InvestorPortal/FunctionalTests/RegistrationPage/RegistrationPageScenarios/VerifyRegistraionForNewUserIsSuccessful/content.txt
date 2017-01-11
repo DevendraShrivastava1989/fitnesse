@@ -1,0 +1,24 @@
+This test case is to verify registration for new user is successful
+
+|Import|
+|fitnesse|
+|fitnesse.fixtures|
+
+
+|script|browser test|
+|open|https://investor.homeunion.com/#register|
+|set browser size to maximum|
+|wait|3|seconds|
+|enter|test|as|First Name|
+|enter|test|as|Last Name|
+|enter|1111111111|as|Phone Number|
+|enter|Test@gmail.com|as|Email Address|
+|enter|Homeunion2016|as|Create Password|
+|enter|Homeunion2016|as|Confirm Password|
+|click|xpath=//div[@class='form-group']/div/div//label/span|
+|wait|3|seconds|
+|click|CREATE|
+|wait|10|seconds|
+|is visible|Thank you for registering|
+|show|take screenshot|image|
+

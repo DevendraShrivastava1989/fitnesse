@@ -1,0 +1,27 @@
+Goal of the Test Case:
+-This test is to verify that for Chicago properties, MRED logo and copy is displayed at the bottom of the Portfolio Builder page.
+
+Steps:
+1.Login to Staging.
+2.Go to Portfolio builder page.
+3.Select Location as "chicago"
+4.Click on "Search" button.
+5.Verify that MRED logo copy is displayed on the bottom of the page.
+
+|Import           |
+|fitnesse         |
+|fitnesse.fixtures|
+
+!| script                            |browser test                                                                                                                                                                                                                                     |
+|loginto                             |demo@homeunion.com                                                                       |stg                                                                       |123456                                                                      |
+|click                               |PORTFOLIO BUILDER                                                                        |                                                                                                                                                       |
+|note                                |Select location as Chicago                                                                                                                                                                                                                       |
+|selectlocationonportfoliobuilderpage|Chicago                                                                                                                                                                                                                                          |
+|click                               |xpath=//button[@id="recalculate"]                                                                                                                                                                                                                |
+|wait                                |10                                                                                       |seconds                                                                                                                                                |
+|note                                |verify that MRED logo is displayed on bottom of the Page                                                                                                                                                                                         |
+|scroll to                           |xpath=//img[@class="pull-right"]                                                                                                                                                                                                                 |
+|note                                |verify that MRED copy is displayed on bottom of the page                                                                                                                                                                                         |
+|is visible                          |Listings identified with the MRED logo come from MRED LLC, are held by brokerage firms other than the owner of this website and the listing brokerage is identified in any listing details. Information is deemed reliable but is not guaranteed.|
+|show                                |take screenshot                                                                          |image                                                                                                                                                  |
+|logoutofipcustom                                                                                                                                                                                                                                                                      |

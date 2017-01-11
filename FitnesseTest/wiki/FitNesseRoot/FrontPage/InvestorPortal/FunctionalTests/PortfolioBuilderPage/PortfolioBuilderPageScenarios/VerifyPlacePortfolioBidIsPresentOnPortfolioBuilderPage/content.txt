@@ -1,0 +1,14 @@
+This test case verifies that "Place Portfolio" button is present on "Portfolio Builder"page.
+
+| Import |
+| fitnesse |
+| fitnesse.fixtures |
+
+| Script | browser test |
+| loginto | demo@homeunion.com | stg | 123456 |
+| click|PORTFOLIO BUILDER|
+| wait| 2|seconds|
+| note | verify that place portfolio button is present |
+| is visible | PLACE PORTFOLIO BID|
+| wait  |2 |seconds|
+| logoutofipcustom|

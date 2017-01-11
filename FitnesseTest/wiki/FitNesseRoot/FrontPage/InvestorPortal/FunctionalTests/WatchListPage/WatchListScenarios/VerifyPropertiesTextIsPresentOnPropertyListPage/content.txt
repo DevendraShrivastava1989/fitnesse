@@ -1,0 +1,13 @@
+This test case is to verify Properties:n text is present on Property List page.
+
+
+| Import |
+| fitnesse |
+| fitnesse.fixtures |
+
+| Script | browser test |
+| gotowatchlist | demo@homeunion.com | stg | 123456 |
+| click | Property List|
+| wait  |2 |seconds|
+| is visible|Properties:|
+| wait  |2 |seconds|

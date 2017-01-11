@@ -1,0 +1,34 @@
+!contents -R2 -g -p -f -h
+
+!define URL !-https://investor.homeunion.com/reco-engine/restapi/portfolio/recommend-best-!
+!define POST_BODY { {{{
+{"questionnaireResponse":{"investmentAmount":@{investment},"investmentStyle":null,"allCashOnly":@{allcash},"sdiraFunded":@{SDIRA},"planType":"@{plan}","holdingPeriod":"FIFTEEN","locations":[]}}
+}}} }
+!define ANY_PLAN {INCOME_NOW}
+!define INCOME_NOW_PLAN {TARGET_DATE_INCOME}
+!define WEALTH_BUILDER_PLAN {WEALTH_BUILDER}
+!define WEALTH_PROTECTION_PLAN {WEALTH_PROTECTION}
+
+|scenario       |get authentication                                        |
+|set value      |investor         |for              |client_id             |
+|set value      |investor-secret  |for              |client_secret         |
+|set value      |investor         |for              |username              |
+|set value      |investor-password|for              |password              |
+|set value      |password         |for              |grant_type            |
+|post  values to|https://investor.homeunion.com/reco-engine/oauth/token    |
+|show           |response                                                  |
+|$access=       |json path        |access_token                            |
+|$access=       |replace all      |(?<![^ ])(?=[^ ])|in|$access|with|Bearer|
+|clear values                                                              |
+
+
+|table template  |check portfolio                         |
+|set content type|application/json                        |
+|set value       |$access        |for header|Authorization|
+|post            |${POST_BODY}   |to        |${URL}       |
+|check           |response status|200                     |
+|show            |request                                 |
+|show            |response                                |
+|$portfoliogenerated=    |json path      |portfolio.propertyCount|
+
+#|$portfoliogenerated=json path      |portfolio.propertyCount             |>0|

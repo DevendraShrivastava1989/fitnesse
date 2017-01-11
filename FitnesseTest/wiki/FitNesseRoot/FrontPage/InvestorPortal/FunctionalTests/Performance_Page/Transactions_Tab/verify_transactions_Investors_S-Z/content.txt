@@ -1,0 +1,33 @@
+<test page>
+!path /Users/Karthik/Documents/git/TestingScripts/HomeUnion/target/test-classes/
+!path /Users/Karthik/Documents/git/TestingScripts/HomeUnion/target/classes/
+
+|Import           |
+|fitnesse         |
+|fitnesse.fixtures|
+
+
+!|Library             |
+|stringtointcomparison|
+|StringFixture        |
+
+|scenario                                 |verify income statement                                                                                 |
+|$temp=                                   |replace all      |[$,]                                    |in|$Operating_cash_balance_Propertyware|with||
+|$Operating_cash_balance_Propertyware_int=|convert to double|$temp                                                                                 |
+|$temp=                                   |replace all      |[$,]                                    |in|$Operating_cash_balance_prod        |with||
+|$Operating_cash_balance_prod_int=        |convert to double|$temp                                                                                 |
+|check                                    |echo             |$Operating_cash_balance_Propertyware_int|~=$Operating_cash_balance_prod_int           |
+
+!|storyboard                 |funda test                              |
+|loginto                     |rohantest@homeuniontest.com|stg|Rohan123|
+|setuptransactionpage        |Sep                                     |
+|logintopw                                                            |
+|performtransactioncomparison|spadhye007@gmail.com                    |
+|performtransactioncomparison|sandeepkonchady@gmail.com               |
+|logoutofpw                                                           |
+|logout                                                               |
+
+
+
+
+

@@ -1,0 +1,30 @@
+<test page>
+
+| Import |
+| fitnesse |
+| fitnesse.fixtures |
+
+!| script | browser test |
+| loginto | autotest@testinvestorportal.com | ${Environment} | !-Homeunion2010-! |
+| click | PORTFOLIO BUILDER  |
+| wait | 10 | seconds |
+| note |verify that Portfolio values in Summary and Total section are equal|
+| checkValuesInSummaryOfPortfolioBuilder|
+| checkValuesInTotalSectionOfPortfolioBuilder|
+| check|echo|$PortfolioValueInSummary|$PortfolioValueInTotal|
+| note |verify that Portfolio values in Summary and Projections section are equal|
+| checkValuesInProjectionsHeaderOfPortfolioBuilder|
+| check|echo|$PortfolioValueInSummary|$PortfolioValueInProjections|
+| note |verify that Rent in Summary and Projections section are equal|
+| check|echo|$RentInSummary|$RentInProjections|
+| note |verify that Investment Amount in Summary and Total section are equal|
+| check|echo|$InvestmentAmountInSummary|$InvestmentAmountInTotal|
+| note |verify that Rent in Summary and Total section are equal|
+| check|echo|$RentInSummary|$RentInTotal|
+| note |verify that COC Return in Summary and Total section are equal|
+| check|echo|$COCReturnInSummary|$COCReturnInTotal|
+| note |verify that Yield in Summary and Total section are equal|
+| check|echo|$YieldInSummary|$YieldInTotal|
+| note |verify that Total Return in Summary and Total section are equal|
+| check|echo|$TotalReturnInSummary|$TotalReturnInTotal|
+| logoutofipcustom|

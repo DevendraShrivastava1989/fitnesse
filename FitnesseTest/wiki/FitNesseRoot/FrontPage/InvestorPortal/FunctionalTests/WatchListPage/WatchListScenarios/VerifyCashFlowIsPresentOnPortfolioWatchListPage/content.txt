@@ -1,0 +1,25 @@
+Goal of the Test Case:
+-This test is to verify that Cash Flow text is present in Portfolio's watch List page.
+
+Steps:
+1.Login to Staging.
+2.Go to Portfolio Builder page.
+3.Click on "Add To Portfolio Watch List".
+4.Click on "Save" button.
+5.Verify that Cash Flow text is present in Portfolio's Watch List page.
+
+| Import |
+| fitnesse |
+| fitnesse.fixtures |
+
+!| script | browser test |
+| loginto | kothawaderupali26@gmail.com | stg |Homeunion2016|
+| click | PORTFOLIO BUILDER | |
+| wait | 10 | seconds |
+| note| Click on Add to Portfolio Watch List||
+| click|ADD TO PORTFOLIO WATCH LIST|
+| note|Click on Save button|
+| click|SAVE|
+| wait|10|seconds|
+| note|Verify Cash Flow Text is present|
+| check|value of|xpath=//div[@class="watch-port-list"]/section[5]/h5|Cash Flow|

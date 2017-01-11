@@ -1,0 +1,26 @@
+Goal of the Test Case:
+-This test is to verify that for Atlanta properties, FMLS logo and copy is displayed at the bottom of the Property Search page.
+
+Steps:
+1.Login to production.
+2.Go to Property Search page.
+3.Select Location as "Atlanta"
+4.Click on "Search" button.
+5.Verify that FMLS logo and copy is displayed on the bottom of the page.
+
+| Import |
+| fitnesse |
+| fitnesse.fixtures |
+
+!| script | browser test |
+| loginto | demo@homeunion.com | ${Environment} | 123456 |
+| click | PROPERTY SEARCH | |
+| note | Select location as Atlanta |
+| selectlocationonpropertysearchpage | Atlanta |
+| click | SEARCH |
+| wait | 10 | seconds |
+| note | verify that FMLS logo is displayed on bottom of the Page |
+| scroll to | xpath=//img[@class="pull-right"] |
+| note | verify that FMLS copy is displayed on bottom of the page |
+| is visible |Listings identified with the FMLS IDX logo come from FMLS, are held by brokerage firms other than the owner of this website and the listing brokerage is identified in any listing details. Information is deemed reliable but is not guaranteed. © 2016 First Multiple Listing Service, Inc. |
+| show | take screenshot | image |
