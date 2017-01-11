@@ -16,7 +16,7 @@
 <PropertySearchVerifyAvailability>.FrontPage.InvestorPortal.FunctionalTests.PropertySearchPage.PropertySearchScenarios.VerifyThePropertyStatus</PropertySearchVerifyAvailability>
 <PropertySearchVerifyNIR>.FrontPage.InvestorPortal.FunctionalTests.PropertySearchPage.PropertySearchScenarios.verifyTheNIRStatus</PropertySearchVerifyNIR>
 -->
-<Transaction>.FrontPage.InvestorPortal.FunctionalTests.TransactionsPage.TransactionPageScenarios.VerifyProgressPercenatageForAllSectionsOnTransactionsPage</Transaction>
+<!--<Transaction>.FrontPage.InvestorPortal.FunctionalTests.TransactionsPage.TransactionPageScenarios.VerifyProgressPercenatageForAllSectionsOnTransactionsPage</Transaction>-->
  <!--<WatchListSort>.FrontPage.InvestorPortal.FunctionalTests.WatchListPage.WatchListScenarios.VerifythesortingorderonPortfolioWatchlistpage</WatchListSort>
  -->
  </SymbolicLinks>
